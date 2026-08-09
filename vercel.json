@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    { "source": "/", "destination": "/Taghash%20Media%20Home.dc.html" },
+    { "source": "/work", "destination": "/Taghash%20Work.dc.html" },
+    { "source": "/services", "destination": "/Taghash%20Services.dc.html" },
+    { "source": "/approach", "destination": "/Taghash%20Approach.dc.html" },
+    { "source": "/contact", "destination": "/Taghash%20Contact.dc.html" }
+  ]
+}
