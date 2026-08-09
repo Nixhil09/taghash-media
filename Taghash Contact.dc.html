@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#050505; }
+  * { box-sizing:border-box; }
+  a { color:#ffffff; text-decoration:none; }
+  a:hover { color:#A855F7; }
+  ::selection { background:#7C2BF5; color:#fff; }
+  @keyframes tgPulse { 0%,100%{opacity:.35;} 50%{opacity:1;} }
+  @keyframes tgRise { from { opacity:0; transform:translate3d(0,26px,0);} to { opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div style="background:#0B0B0B; color:#FAFAFA; font-family:Archivo, Helvetica, sans-serif;">
+
+  <div data-screen-label="Contact split" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr)); min-height:100vh;">
+
+    <div style="background:#131313; padding:clamp(28px,3vw,52px) clamp(20px,2.4vw,44px) clamp(40px,5vw,70px); display:flex; flex-direction:column; gap:clamp(20px,2.4vw,34px);">
+      <a href="Taghash Media Home.dc.html" style="display:block; width:96px; height:38px; overflow:hidden; position:relative;">
+        <img src="uploads/photo_2024-08-27_03.04.55-removebg-preview%20(2).png" alt="Taghash Media" style="position:absolute; top:50%; left:50%; width:200px; height:200px; transform:translate(-50%,-46.7%); display:block;" />
+      </a>
+
+      <h1 style="margin:0; font-size:clamp(44px,6.4vw,104px); font-weight:900; letter-spacing:-0.055em; line-height:.86; text-transform:uppercase; animation:tgRise .7s cubic-bezier(.22,1,.36,1) both;">Contact</h1>
+
+      <div style="margin-top:auto; display:flex; align-items:center; gap:clamp(14px,1.6vw,22px); padding:clamp(16px,1.8vw,24px); border:1px solid rgba(255,255,255,.12); border-radius:16px; background:rgba(255,255,255,.03); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);">
+        <div style="flex:none; width:clamp(56px,5vw,74px); height:clamp(56px,5vw,74px); border-radius:50%; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:repeating-linear-gradient(135deg,#161616 0 8px,#1f1f1f 8px 16px);"></div>
+        <p style="margin:0; font-size:clamp(15px,1.25vw,18px); line-height:1.55; color:rgba(255,255,255,.72); text-wrap:pretty;">Hi — I'm Aditya, and I'll personally look at your project. <strong style="color:#fff; font-weight:700;">Send me a note at <a href="mailto:business@taghashmedia.com" style="border-bottom:1px solid rgba(168,85,247,.6);">business@taghashmedia.com</a>.</strong></p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(8px,1vw,14px);">
+        <sc-for list="{{ actions }}" as="a" hint-placeholder-count="3">
+          <a href="{{ a.href }}" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:clamp(18px,2vw,28px) 10px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.26); border-color:rgba(168,85,247,.5); transform:translateY(-3px);">
+            <span style="font-size:clamp(20px,2vw,26px); line-height:1;">{{ a.icon }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.55);">{{ a.label }}</span>
+          </a>
+        </sc-for>
+      </div>
+
+      <sc-for list="{{ fields }}" as="f" hint-placeholder-count="3">
+        <a href="{{ f.href }}" style="display:flex; flex-direction:column; gap:8px; padding:clamp(16px,1.8vw,24px); border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.035); transition:background .3s ease, border-color .3s ease;" style-hover="color:#fff; background:rgba(255,255,255,.06); border-color:rgba(168,85,247,.4);">
+          <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);">{{ f.label }}</span>
+          <span style="font-size:clamp(16px,1.4vw,21px); font-weight:600; letter-spacing:-0.02em; line-height:1.45; white-space:pre-line;">{{ f.value }}</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div style="position:relative; min-height:60vh; overflow:hidden; background:repeating-linear-gradient(135deg,#0f0f0f 0 16px,#181818 16px 32px);">
+      <nav style="position:absolute; top:clamp(22px,2.4vw,40px); right:clamp(20px,2.4vw,44px); z-index:5; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:clamp(12px,1.6vw,28px);">
+        <a href="Taghash Media Home.dc.html" style="font-size:15px; font-weight:500;">Home</a>
+        <a href="Taghash Work.dc.html" style="font-size:15px; font-weight:500;">Work</a>
+        <a href="Taghash Services.dc.html" style="font-size:15px; font-weight:500;">Services</a>
+        <a href="Taghash Approach.dc.html" style="font-size:15px; font-weight:500;">Approach</a>
+        <a href="#top" style="font-size:15px; font-weight:500; color:#A855F7;">Contact</a>
+      </nav>
+
+      <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding:clamp(30px,5vw,80px);">
+        <div style="display:flex; align-items:center; gap:clamp(16px,2.4vw,40px); padding:clamp(20px,2.6vw,44px) clamp(26px,3.4vw,60px); border-radius:10px; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.06); backdrop-filter:blur(26px) saturate(170%); -webkit-backdrop-filter:blur(26px) saturate(170%); box-shadow:0 40px 90px -50px rgba(0,0,0,1), 0 0 70px -20px rgba(124,43,245,.5);">
+          <span style="font-size:clamp(30px,4.4vw,76px); font-weight:900; letter-spacing:-0.05em; line-height:1; white-space:nowrap;">Let's talk</span>
+          <div style="display:flex; gap:clamp(8px,1vw,14px);">
+            <sc-for list="{{ actions }}" as="a" hint-placeholder-count="3">
+              <a href="{{ a.href }}" style="display:inline-flex; align-items:center; justify-content:center; width:clamp(42px,4vw,64px); height:clamp(42px,4vw,64px); border-radius:50%; border:1px solid rgba(255,255,255,.28); font-size:clamp(16px,1.6vw,24px); transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:#7C2BF5; border-color:#7C2BF5; transform:translateY(-3px);">{{ a.icon }}</a>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <span style="position:absolute; left:clamp(20px,2.4vw,44px); bottom:clamp(20px,2.4vw,40px); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35);">contact image — drop here</span>
+    </div>
+  </div>
+
+  <dc-import name="Taghash Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      actions: [
+        { icon: "✆", label: "Call", href: "tel:+919000000000" },
+        { icon: "✉", label: "Email", href: "mailto:business@taghashmedia.com" },
+        { icon: "➤", label: "Route", href: "#top" }
+      ],
+      fields: [
+        { label: "Phone", value: "+91 90000 00000", href: "tel:+919000000000" },
+        { label: "Email", value: "business@taghashmedia.com", href: "mailto:business@taghashmedia.com" },
+        { label: "Address", value: "Taghash Media\nIndiranagar, 100 Ft Road\nBengaluru 560038\nIndia", href: "#top" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
