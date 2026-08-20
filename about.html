@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#050505; }
+  * { box-sizing:border-box; }
+  a { color:#ffffff; text-decoration:none; }
+  a:hover { color:#A855F7; }
+  ::selection { background:#7C2BF5; color:#fff; }
+  @keyframes tgPulse { 0%,100%{opacity:.3;} 50%{opacity:1;} }
+  @keyframes tgRise { from { opacity:0; transform:translate3d(0,28px,0);} to { opacity:1; transform:none;} }
+  @keyframes tgMarquee { from { transform:translate3d(0,0,0);} to { transform:translate3d(-50%,0,0);} }
+</style>
+</helmet>
+
+<div style="background:#050505; color:#FAFAFA; font-family:Archivo, Helvetica, sans-serif;">
+
+  <header data-screen-label="Header" style="position:fixed; top:0; left:0; right:0; z-index:120; display:flex; align-items:flex-start; justify-content:space-between; gap:24px;">
+    <div ref="{{ navPillRef }}" style="display:flex; align-items:center; gap:clamp(14px,2vw,34px); background:rgba(17,17,17,.34); backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%); border-right:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); box-shadow:0 18px 50px -30px rgba(0,0,0,.9); border-bottom-right-radius:14px; padding:11px clamp(18px,2vw,30px) 11px clamp(16px,1.8vw,26px); transition:background .35s ease, border-color .35s ease;">
+      <a href="index.html" style="display:block; flex:none; width:84px; height:34px; overflow:hidden; position:relative;">
+        <img src="uploads/photo_2024-08-27_03.04.55-removebg-preview%20(2).png" alt="Taghash Media" style="position:absolute; top:50%; left:50%; width:176px; height:176px; transform:translate(-50%,-46.7%); display:block;" />
+      </a>
+      <nav style="display:flex; align-items:center; gap:clamp(12px,1.6vw,28px);">
+        <a href="work.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Work</a>
+        <span onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position:relative; display:inline-flex; align-items:center; gap:7px; cursor:pointer;">
+          <a href="services.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Services</a>
+          <span style="font-size:9px; line-height:1; opacity:.55; transform:{{ menuArrow }}; transition:transform .3s ease;">▼</span>
+          <div style="position:absolute; top:100%; left:-18px; width:min(336px,82vw); padding:22px 10px 10px; border-radius:18px; background:rgba(14,14,14,.72); backdrop-filter:blur(26px) saturate(170%); -webkit-backdrop-filter:blur(26px) saturate(170%); border:1px solid rgba(255,255,255,.12); box-shadow:0 40px 80px -40px rgba(0,0,0,1), 0 0 60px -24px rgba(124,43,245,.5); opacity:{{ menuOpacity }}; visibility:{{ menuVis }}; transform:{{ menuShift }}; transition:opacity .28s ease, transform .32s cubic-bezier(.22,1,.36,1), visibility .28s;">
+            <sc-for list="{{ serviceLinks }}" as="l" hint-placeholder-count="6">
+              <a href="{{ l.href }}" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px; color:rgba(255,255,255,.78); transition:background .25s ease, color .25s ease;" style-hover="background:rgba(124,43,245,.22); color:#fff;">
+                <span style="font-size:14px; font-weight:500; letter-spacing:-0.015em; line-height:1.3;">{{ l.name }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </span>
+        <a href="approach.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Approach</a>
+        <a href="#top" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:#A855F7;">About</a>
+        <a href="contact.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Contact</a>
+      </nav>
+    </div>
+    <a href="contact.html" ref="{{ ctaPillRef }}" style="display:flex; align-items:center; gap:10px; background:rgba(17,17,17,.34); backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%); border-left:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); box-shadow:0 18px 50px -30px rgba(0,0,0,.9), 0 0 34px -6px rgba(124,43,245,.42), inset 0 0 22px -12px rgba(168,85,247,.6); border-bottom-left-radius:14px; padding:17px clamp(20px,2vw,30px); font-size:15px; font-weight:500; color:rgba(255,255,255,.85); transition:background .35s ease, border-color .35s ease, color .3s ease;" style-hover="color:#fff;">
+      Request a Call
+      <span style="width:7px; height:7px; border-radius:50%; background:#7C2BF5; animation:tgPulse 2s ease infinite;"></span>
+    </a>
+  </header>
+
+  <section id="top" data-screen-label="About hero" onMouseMove="{{ onGlow }}" onMouseLeave="{{ offGlow }}" style="position:relative; overflow:hidden; min-height:86vh; display:flex; flex-direction:column; justify-content:flex-end; gap:clamp(24px,4vh,50px); padding:clamp(120px,18vh,200px) clamp(16px,1.6vw,26px) clamp(40px,6vh,80px);">
+    <div data-glow="1" style="position:absolute; top:0; left:0; width:640px; height:640px; margin:-320px 0 0 -320px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle, rgba(124,43,245,.30), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .45s ease; will-change:transform;"></div>
+
+    <div style="position:relative; display:flex; flex-wrap:wrap; align-items:flex-end; gap:clamp(18px,3vw,60px);">
+      <h1 data-glow-lift="1" style="margin:0; font-size:clamp(44px,10.5vw,180px); font-weight:900; letter-spacing:-0.06em; line-height:.84; text-transform:uppercase; animation:tgRise .8s cubic-bezier(.22,1,.36,1) both;">The people<br />whose names<br /><span style="color:#A855F7;">are on it</span></h1>
+      <div style="display:flex; flex-direction:column; gap:10px; padding-bottom:clamp(6px,1vw,18px);">
+        <sc-for list="{{ roster }}" as="r" hint-placeholder-count="6">
+          <div style="display:flex; align-items:baseline; gap:10px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42);">
+            <span style="color:#A855F7;">{{ r.n }}</span>
+            <span>{{ r.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <p style="position:relative; margin:0; align-self:flex-end; max-width:54ch; font-size:clamp(16px,1.5vw,22px); line-height:1.55; color:rgba(255,255,255,.6); text-wrap:pretty; animation:tgRise .8s cubic-bezier(.22,1,.36,1) .15s both;">Small team, unusually senior, deliberately unbalanced towards people who ship. Nobody here is billed out as a resource. You get the humans below and the four machines they built.</p>
+  </section>
+
+  <section data-screen-label="Founders" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px) clamp(40px,5vw,80px);">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:clamp(28px,4vw,60px);">
+      <h2 style="margin:0; font-size:clamp(28px,4.6vw,78px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">The two who answer for it</h2>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4);">Founders · Bengaluru</span>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(400px,100%),1fr)); gap:clamp(20px,3vw,56px);">
+      <sc-for list="{{ founders }}" as="p" hint-placeholder-count="2">
+        <div style="display:flex; flex-direction:column; gap:clamp(16px,2vw,26px);">
+          <div style="position:relative; aspect-ratio:4/5; border-radius:8px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:repeating-linear-gradient(135deg,#101010 0 14px,#191919 14px 28px); transform:rotate({{ p.tilt }}); transition:transform .55s cubic-bezier(.22,1,.36,1), border-color .35s ease, box-shadow .45s ease;" style-hover="transform:rotate(0deg) scale(1.012); border-color:rgba(168,85,247,.5); box-shadow:0 60px 110px -60px rgba(124,43,245,.9);">
+            <span style="position:absolute; left:16px; bottom:16px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42);">{{ p.slot }}</span>
+            <span style="position:absolute; right:14px; top:14px; padding:7px 13px; border-radius:999px; background:rgba(5,5,5,.6); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); font-family:'JetBrains Mono', monospace; font-size:9px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">{{ p.tag }}</span>
+          </div>
+          <div style="display:flex; align-items:baseline; flex-wrap:wrap; gap:14px;">
+            <span style="font-size:clamp(34px,4.6vw,78px); font-weight:900; letter-spacing:-0.055em; line-height:.88; text-transform:uppercase;">{{ p.name }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">{{ p.role }}</span>
+          </div>
+          <p style="margin:0; max-width:46ch; font-size:clamp(15px,1.3vw,19px); line-height:1.65; color:rgba(255,255,255,.6); text-wrap:pretty;">{{ p.body }}</p>
+          <div style="display:flex; flex-direction:column; border-top:1px solid rgba(255,255,255,.12);">
+            <sc-for list="{{ p.facts }}" as="fa" hint-placeholder-count="3">
+              <div style="display:grid; grid-template-columns:minmax(0,auto) minmax(0,1fr); gap:clamp(12px,2vw,28px); padding:12px 2px; border-bottom:1px solid rgba(255,255,255,.08);">
+                <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35);">{{ fa.k }}</span>
+                <span style="font-size:15px; line-height:1.5; color:rgba(255,255,255,.78); text-wrap:pretty;">{{ fa.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="font-size:clamp(19px,1.9vw,30px); font-weight:800; letter-spacing:-0.035em; line-height:1.16; text-wrap:pretty; color:rgba(255,255,255,.92);">&ldquo;{{ p.quote }}&rdquo;</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Crew" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr)); gap:clamp(20px,3vw,60px); align-items:end; margin-bottom:clamp(28px,4vw,56px);">
+      <h2 style="margin:0; font-size:clamp(28px,4.6vw,78px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">The four who <span style="color:#A855F7;">do it</span></h2>
+      <p style="margin:0; max-width:44ch; font-size:clamp(15px,1.3vw,19px); line-height:1.6; color:rgba(255,255,255,.55); text-wrap:pretty;">Four leads, four lanes, no committee. Whichever of them your work touches, they show up to the call themselves.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr)); gap:clamp(12px,1.6vw,22px);">
+      <sc-for list="{{ crew }}" as="c" hint-placeholder-count="4">
+        <div style="display:flex; flex-direction:column; gap:14px; padding:clamp(12px,1.2vw,16px); border-radius:16px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); transition:background .35s ease, border-color .35s ease, transform .45s cubic-bezier(.22,1,.36,1);" style-hover="background:rgba(124,43,245,.11); border-color:rgba(168,85,247,.42); transform:translateY(-6px) rotate({{ c.tilt }});">
+          <div style="aspect-ratio:4/5; border-radius:10px; overflow:hidden; background:repeating-linear-gradient(135deg,#0f0f0f 0 12px,#171717 12px 24px); display:flex; align-items:flex-end; padding:13px;">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);">{{ c.slot }}</span>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:6px; padding:0 4px 6px;">
+            <span style="font-size:clamp(20px,1.9vw,28px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; line-height:1;">{{ c.name }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">{{ c.role }}</span>
+            <p style="margin:6px 0 0; font-size:14px; line-height:1.55; color:rgba(255,255,255,.58); text-wrap:pretty;">{{ c.body }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Wall" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(40px,5vw,80px) 0 clamp(50px,6vw,90px);">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:16px; padding:0 clamp(16px,1.6vw,26px) clamp(24px,3vw,44px);">
+      <h2 style="margin:0; font-size:clamp(26px,4.2vw,68px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">The wall in the studio</h2>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4);">Bengaluru · Dubai · Toronto</span>
+    </div>
+    <div style="display:flex; gap:clamp(12px,1.6vw,24px); overflow-x:auto; padding:14px clamp(16px,1.6vw,26px) 22px; scrollbar-width:none;">
+      <sc-for list="{{ wall }}" as="w" hint-placeholder-count="6">
+        <div style="flex:0 0 clamp(200px,20vw,300px); aspect-ratio:{{ w.ratio }}; border-radius:6px; overflow:hidden; border:1px solid rgba(255,255,255,.1); background:repeating-linear-gradient(135deg,#0f0f0f 0 12px,#171717 12px 24px); display:flex; align-items:flex-end; padding:14px; transform:rotate({{ w.tilt }}); transition:transform .5s cubic-bezier(.22,1,.36,1), border-color .35s ease;" style-hover="transform:rotate(0deg) scale(1.03); border-color:rgba(168,85,247,.5);">
+          <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42);">{{ w.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Bots" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px) clamp(30px,4vw,60px);">
+    <div style="display:flex; align-items:baseline; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:clamp(28px,4vw,56px);">
+      <h2 style="margin:0; font-size:clamp(28px,4.6vw,78px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">Meet the shift that never ends</h2>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">● 4 online</span>
+    </div>
+
+    <sc-for list="{{ bots }}" as="b" hint-placeholder-count="4">
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(330px,100%),1fr)); gap:clamp(18px,3vw,60px); align-items:center; padding:clamp(26px,3.4vw,52px) 0; border-top:1px solid rgba(255,255,255,.1);">
+        <div style="display:flex; flex-direction:column; gap:clamp(14px,1.8vw,24px);">
+          <div style="display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;">
+            <span style="font-size:clamp(34px,5vw,86px); font-weight:900; letter-spacing:-0.055em; line-height:.9; text-transform:uppercase;">{{ b.name }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">{{ b.role }}</span>
+          </div>
+          <p style="margin:0; max-width:52ch; font-size:clamp(15px,1.3vw,19px); line-height:1.65; color:rgba(255,255,255,.58); text-wrap:pretty;">{{ b.body }}</p>
+          <div style="display:flex; flex-wrap:wrap; gap:8px;">
+            <sc-for list="{{ b.tags }}" as="t" hint-placeholder-count="3">
+              <span style="padding:8px 16px; border-radius:999px; border:1px solid rgba(255,255,255,.12); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.6);">{{ t }}</span>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="display:flex; flex-direction:column; gap:12px; padding:clamp(18px,2vw,28px); border-radius:18px; background:rgba(255,255,255,.04); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.1); box-shadow:0 40px 80px -50px rgba(0,0,0,1);">
+          <div style="display:flex; align-items:center; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);">
+            <span>{{ b.name }} · live</span>
+            <span style="color:#A855F7;">{{ b.stat }}</span>
+          </div>
+          <sc-for list="{{ b.log }}" as="l" hint-placeholder-count="3">
+            <div style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px; background:rgba(255,255,255,.03); font-size:13.5px; line-height:1.5; color:rgba(255,255,255,.72);">
+              <span style="flex:none; width:6px; height:6px; border-radius:50%; background:#7C2BF5; animation:tgPulse 2.4s ease infinite;"></span>
+              <span>{{ l }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </sc-for>
+  </section>
+
+  <div data-screen-label="Marquee" style="border-top:1px solid rgba(255,255,255,.12); border-bottom:1px solid rgba(255,255,255,.12); overflow:hidden; padding:clamp(14px,1.6vw,24px) 0;">
+    <div style="display:flex; width:max-content; animation:tgMarquee 38s linear infinite; will-change:transform;">
+      <sc-for list="{{ marquee }}" as="m" hint-placeholder-count="12">
+        <span style="padding:0 clamp(16px,2vw,34px); font-size:clamp(22px,3vw,52px); font-weight:900; letter-spacing:-0.045em; text-transform:uppercase; white-space:nowrap; color:{{ m.color }};">{{ m.text }}</span>
+      </sc-for>
+    </div>
+  </div>
+
+  <section data-screen-label="House rules" onMouseMove="{{ onGlow }}" onMouseLeave="{{ offGlow }}" style="position:relative; overflow:hidden; padding:clamp(56px,7vw,110px) clamp(16px,1.6vw,26px);">
+    <div data-glow="1" style="position:absolute; top:0; left:0; width:640px; height:640px; margin:-320px 0 0 -320px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle, rgba(124,43,245,.26), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .45s ease; will-change:transform;"></div>
+
+    <div style="position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); gap:clamp(24px,4vw,70px); align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:16px;">
+        <h2 data-glow-lift="1" style="margin:0; font-size:clamp(30px,5.2vw,92px); font-weight:900; letter-spacing:-0.05em; line-height:.9; text-transform:uppercase;">House<br />rules</h2>
+        <p style="margin:0; max-width:38ch; font-size:clamp(15px,1.25vw,18px); line-height:1.65; color:rgba(255,255,255,.55); text-wrap:pretty;">Not values on a wall. These are the eight arguments we have already had, so we do not have to keep having them on your account.</p>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <sc-for list="{{ rules }}" as="r" hint-placeholder-count="8">
+          <div style="display:grid; grid-template-columns:38px 1fr; gap:16px; align-items:baseline; padding:clamp(14px,1.5vw,20px) 6px; border-top:1px solid rgba(255,255,255,.1); transition:padding-left .35s cubic-bezier(.22,1,.36,1), background .3s ease;" style-hover="padding-left:18px; background:rgba(124,43,245,.09);">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.12em; color:#A855F7;">{{ r.n }}</span>
+            <span style="font-size:clamp(17px,1.7vw,26px); font-weight:800; letter-spacing:-0.03em; line-height:1.22; text-wrap:pretty;">{{ r.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Close" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(56px,7vw,120px) clamp(16px,1.6vw,26px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:28px;">
+      <h2 style="margin:0; max-width:18ch; font-size:clamp(30px,5.2vw,90px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase; text-wrap:pretty;">Want the same names on your account?</h2>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <a href="contact.html" style="display:inline-flex; align-items:center; gap:12px; padding:18px 34px; border-radius:999px; background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 24px 60px -34px rgba(0,0,0,.9), 0 0 40px -10px rgba(124,43,245,.5); color:#fff; font-size:16px; font-weight:600; transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.32); border-color:rgba(168,85,247,.55); transform:translateY(-2px);">Request a call</a>
+        <a href="mailto:business@taghashmedia.com" style="display:inline-flex; align-items:center; padding:18px 32px; border-radius:999px; border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.7); font-size:16px; font-weight:600; transition:color .3s ease, border-color .3s ease;" style-hover="color:#fff; border-color:rgba(168,85,247,.55);">business@taghashmedia.com</a>
+      </div>
+    </div>
+  </section>
+
+  <dc-import name="Taghash Footer" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { menu: false };
+    this.navPillRef = React.createRef();
+    this.ctaPillRef = React.createRef();
+  }
+  componentDidMount() {
+    this._onScroll = () => {
+      const g = Math.max(0, Math.min(1, (window.scrollY || 0) / 220));
+      [this.navPillRef.current, this.ctaPillRef.current].forEach(el => {
+        if (!el) return;
+        el.style.background = "rgba(12,12,12," + (0.34 + 0.42 * g) + ")";
+        el.style.borderColor = "rgba(255,255,255," + (0.07 + 0.06 * g) + ")";
+      });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener("scroll", this._onScroll); clearTimeout(this._mt); }
+  renderVals() {
+    const SV = [
+      ["Performance Marketing", "performance-marketing"],
+      ["Chatbots, Automations & Workflow Builds", "automation"],
+      ["Generative & Search Optimization", "geo-seo"],
+      ["AI Content Production & PR", "content-pr"],
+      ["UX & Website Design", "ux-web"],
+      ["Engineering & DevOps", "engineering"]
+    ];
+    const words = ["No account managers", "Senior people only", "One number", "Bad news first", "Fewer campaigns", "Built in-house"];
+    const marquee = [];
+    for (let i = 0; i < 2; i++) words.forEach((w, j) => marquee.push({ text: w + " ·", color: j % 2 ? "rgba(255,255,255,.32)" : "#FAFAFA" }));
+    return {
+      navPillRef: this.navPillRef,
+      ctaPillRef: this.ctaPillRef,
+      openMenu: () => { clearTimeout(this._mt); this.setState({ menu: true }); },
+      closeMenu: () => { clearTimeout(this._mt); this._mt = setTimeout(() => this.setState({ menu: false }), 280); },
+      menuOpacity: this.state.menu ? 1 : 0,
+      menuVis: this.state.menu ? "visible" : "hidden",
+      menuShift: this.state.menu ? "translateY(0)" : "translateY(-10px)",
+      menuArrow: this.state.menu ? "rotate(180deg)" : "rotate(0deg)",
+      serviceLinks: SV.map(s => ({ name: s[0], href: s[1] + ".html" })),
+      onGlow: (e) => {
+        const host = e.currentTarget, r = host.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const g = host.querySelector("[data-glow]");
+        if (g) { g.style.opacity = "1"; g.style.transform = "translate3d(" + x + "px," + y + "px,0)"; }
+        const l = host.querySelector("[data-glow-lift]");
+        if (l) {
+          const dx = (x / r.width - 0.5) * 20, dy = (y / r.height - 0.5) * 12;
+          l.style.transition = "transform .55s cubic-bezier(.22,1,.36,1)";
+          l.style.transform = "translate3d(" + dx.toFixed(2) + "px," + dy.toFixed(2) + "px,0)";
+        }
+      },
+      offGlow: (e) => {
+        const host = e.currentTarget;
+        const g = host.querySelector("[data-glow]"); if (g) g.style.opacity = "0";
+        const l = host.querySelector("[data-glow-lift]"); if (l) l.style.transform = "translate3d(0,0,0)";
+      },
+      roster: [
+        { n: "01", label: "Aditya · Founder & CEO" },
+        { n: "02", label: "Kartik · Co-founder & CMO" },
+        { n: "03", label: "Bikram · CSM" },
+        { n: "04", label: "Manjit · Design head" },
+        { n: "05", label: "Ayushi · DevOps head" },
+        { n: "06", label: "Sonali · People & HR" }
+      ],
+      founders: [
+        {
+          name: "Aditya", role: "Founder & CEO", tag: "In every review", tilt: "-1.4deg", slot: "portrait / 4:5",
+          body: "Started Taghash with one client, one spreadsheet and an unreasonable opinion about attribution. Still sits in every account review and still asks the same question first.",
+          facts: [
+            { k: "Owns", v: "Strategy, media, the P&L" },
+            { k: "Asks", v: "What did it earn, and how do you know?" },
+            { k: "Will not do", v: "Awareness campaigns with no exit" }
+          ],
+          quote: "If you cannot defend the number in a board meeting, it is not a result. It is a screenshot."
+        },
+        {
+          name: "Kartik", role: "Co-founder & CMO", tag: "Writes the pitch", tilt: "1.6deg", slot: "portrait / 4:5",
+          body: "Runs positioning, creative and the uncomfortable part of the pitch where we say which half of your plan we would not build. Ten years of watching good products lose to clearer ones.",
+          facts: [
+            { k: "Owns", v: "Positioning, creative, content" },
+            { k: "Asks", v: "Why would anyone repeat this sentence?" },
+            { k: "Will not do", v: "Taglines nobody in the company believes" }
+          ],
+          quote: "Most brands are not unknown. They are unclear, and that is a much cheaper problem to fix."
+        }
+      ],
+      crew: [
+        { name: "Bikram", role: "Client success", tilt: "-1.2deg", slot: "portrait / 4:5", body: "Owns the relationship and the calendar. If a date moves you hear it from Bikram, not from a launch that quietly did not happen." },
+        { name: "Manjit", role: "Design head", tilt: "1.2deg", slot: "portrait / 4:5", body: "Draws the thing, then argues for the version with less in it. Owns the design system and the taste bar nobody is allowed to lower." },
+        { name: "Ayushi", role: "DevOps head", tilt: "-1.6deg", slot: "portrait / 4:5", body: "Keeps builds shipping and infrastructure boring. On call during launch week so nobody else has to be." },
+        { name: "Sonali", role: "People & HR", tilt: "1.4deg", slot: "portrait / 4:5", body: "Hires slowly, protects the culture loudly, and is the reason the same faces are still on your account next year." }
+      ],
+      wall: [
+        { label: "studio, bengaluru", tilt: "-2deg", ratio: "4/5" },
+        { label: "shoot day", tilt: "1.6deg", ratio: "4/3" },
+        { label: "whiteboard, week one", tilt: "-1.2deg", ratio: "4/5" },
+        { label: "launch night", tilt: "2.2deg", ratio: "4/3" },
+        { label: "the client wall", tilt: "-1.8deg", ratio: "4/5" },
+        { label: "offsite, 2026", tilt: "1.1deg", ratio: "4/3" }
+      ],
+      marquee: marquee,
+      rules: [
+        { n: "01", t: "The number wins the argument, including when it is our idea losing." },
+        { n: "02", t: "If we cannot measure it, we say so out loud before you pay for it." },
+        { n: "03", t: "Fewer campaigns, more creative. Almost always the right trade." },
+        { n: "04", t: "No deck longer than the work inside it." },
+        { n: "05", t: "Bad news travels first. You hear it from us, early and plainly." },
+        { n: "06", t: "The bots take the 3am shift. Nobody on the team does." },
+        { n: "07", t: "We would rather lose the pitch than oversell the plan." },
+        { n: "08", t: "Every account has a human whose name is on it. Yours are above." }
+      ],
+      bots: [
+        {
+          name: "Ava", role: "Chat & voice agent", stat: "11s avg. reply",
+          body: "Ava picks up the phone and the chat window. She qualifies, books, reschedules, and hands over a briefed lead, so nobody on your team is doing intake at 11pm and nobody's enquiry dies in a form queue.",
+          tags: ["Inbound calls", "Live chat", "Booking", "Qualification"],
+          log: ["Booked a site visit for a Tarzanway enquiry, Tues 4pm", "Caught a duplicate lead before sales called twice", "Flagged an angry message for a human, correctly"]
+        },
+        {
+          name: "Scrappy", role: "Data & competitor scraper", stat: "24/7 uptime",
+          body: "Scrappy watches your competitors' ads, pricing, landing pages and rankings around the clock. When someone in your category changes their offer, you find out that afternoon, not in next quarter's audit.",
+          tags: ["Ad libraries", "Pricing", "SERP tracking", "Alerts"],
+          log: ["Competitor dropped price 12%, alert sent to strategy", "Three new creatives detected in category", "Ranking slip on two commercial keywords"]
+        },
+        {
+          name: "Julio", role: "Delivery CSM", stat: "0 dropped balls",
+          body: "Julio sits on top of every active project: timelines, dependencies, who owes what. He's the reason your update arrives before you ask for it, and the reason we know a deadline is slipping while it can still be saved.",
+          tags: ["Timelines", "Status", "Risk flags", "Client updates"],
+          log: ["Creative review 2 days behind, nudged the owner", "Weekly summary sent to 6 accounts", "Blocked task escalated to account lead"]
+        },
+        {
+          name: "Zen", role: "KPIs & reporting", stat: "1 number, not 6",
+          body: "Zen collapses ad platforms, GA4, CRM and call data into one honest view. No cherry-picked screenshots, no metric that only looks good in isolation. Just the number you'd defend to your board.",
+          tags: ["Blended ROAS", "CAC", "Pipeline", "Board decks"],
+          log: ["Monthly report generated for 9 accounts", "Attribution gap detected in one funnel", "Forecast updated, Q3 pacing 8% ahead"]
+        }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#050505; }
+  * { box-sizing:border-box; }
+  a { color:#ffffff; text-decoration:none; }
+  a:hover { color:#A855F7; }
+  ::selection { background:#7C2BF5; color:#fff; }
+  input::placeholder, textarea::placeholder { color:rgba(255,255,255,.3); }
+  select option { background:#111111; color:#fff; }
+  @keyframes tgPulse { 0%,100%{opacity:.35;} 50%{opacity:1;} }
+  @keyframes tgRise { from { opacity:0; transform:translate3d(0,26px,0);} to { opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div style="background:#0B0B0B; color:#FAFAFA; font-family:Archivo, Helvetica, sans-serif;">
+
+  <div data-screen-label="Contact split" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(440px,100%),1fr)); align-items:stretch;">
+
+    <div style="background:#131313; padding:clamp(28px,3vw,52px) clamp(20px,2.4vw,44px) clamp(40px,5vw,70px); display:flex; flex-direction:column; gap:clamp(20px,2.4vw,34px);">
+      <a href="index.html" style="display:block; width:96px; height:38px; overflow:hidden; position:relative;">
+        <img src="uploads/photo_2024-08-27_03.04.55-removebg-preview%20(2).png" alt="Taghash Media" style="position:absolute; top:50%; left:50%; width:200px; height:200px; transform:translate(-50%,-46.7%); display:block;" />
+      </a>
+
+      <h1 style="margin:0; font-size:clamp(44px,6.4vw,104px); font-weight:900; letter-spacing:-0.055em; line-height:.86; text-transform:uppercase; animation:tgRise .7s cubic-bezier(.22,1,.36,1) both;">Contact</h1>
+
+      <div style="display:grid; place-items:start; min-height:2.4em;">
+        <sc-for list="{{ phrases }}" as="p" hint-placeholder-count="4">
+          <span style="grid-area:1/1; font-size:clamp(20px,2.1vw,32px); font-weight:900; letter-spacing:-0.04em; line-height:1.1; color:rgba(255,255,255,.9); opacity:{{ p.op }}; transform:{{ p.tr }}; filter:blur({{ p.bl }}); transition:opacity .5s ease, transform .6s cubic-bezier(.22,1,.36,1), filter .5s ease;">{{ p.text }}</span>
+        </sc-for>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:clamp(14px,1.6vw,22px); padding:clamp(16px,1.8vw,24px); border:1px solid rgba(255,255,255,.12); border-radius:16px; background:rgba(255,255,255,.03); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px);">
+        <div style="flex:none; width:clamp(56px,5vw,74px); height:clamp(56px,5vw,74px); border-radius:50%; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:repeating-linear-gradient(135deg,#161616 0 8px,#1f1f1f 8px 16px);"></div>
+        <p style="margin:0; font-size:clamp(15px,1.25vw,18px); line-height:1.55; color:rgba(255,255,255,.72); text-wrap:pretty;">Hi, I'm Aditya. I read every one of these, including the ones pitching me SEO services. <strong style="color:#fff; font-weight:700;">Send me a note at <a href="mailto:business@taghashmedia.com" style="border-bottom:1px solid rgba(168,85,247,.6);">business@taghashmedia.com</a>.</strong></p>
+      </div>
+
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(8px,1vw,14px);">
+        <sc-for list="{{ actions }}" as="a" hint-placeholder-count="3">
+          <a href="{{ a.href }}" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; padding:clamp(18px,2vw,28px) 10px; border-radius:14px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.26); border-color:rgba(168,85,247,.5); transform:translateY(-3px);">
+            <span style="font-size:clamp(20px,2vw,26px); line-height:1;">{{ a.icon }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.55);">{{ a.label }}</span>
+          </a>
+        </sc-for>
+      </div>
+
+      <sc-for list="{{ fields }}" as="f" hint-placeholder-count="3">
+        <a href="{{ f.href }}" style="display:flex; flex-direction:column; gap:8px; padding:clamp(16px,1.8vw,24px); border-radius:14px; border:1px solid rgba(255,255,255,.08); background:rgba(255,255,255,.035); transition:background .3s ease, border-color .3s ease;" style-hover="color:#fff; background:rgba(255,255,255,.06); border-color:rgba(168,85,247,.4);">
+          <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);">{{ f.label }}</span>
+          <span style="font-size:clamp(16px,1.4vw,21px); font-weight:600; letter-spacing:-0.02em; line-height:1.45; white-space:pre-line;">{{ f.value }}</span>
+        </a>
+      </sc-for>
+    </div>
+
+    <div onMouseMove="{{ onGlow }}" onMouseLeave="{{ offGlow }}" style="position:relative; overflow:hidden; background:repeating-linear-gradient(135deg,#0f0f0f 0 16px,#181818 16px 32px); padding:clamp(84px,9vw,120px) clamp(20px,2.6vw,52px) clamp(48px,6vw,80px); display:flex; align-items:flex-start; justify-content:center;">
+      <div data-glow="1" style="position:absolute; top:0; left:0; width:660px; height:660px; margin:-330px 0 0 -330px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle, rgba(124,43,245,.34), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .45s ease; will-change:transform;"></div>
+
+      <nav style="position:absolute; top:clamp(22px,2.4vw,40px); right:clamp(20px,2.4vw,44px); z-index:5; display:flex; flex-wrap:wrap; justify-content:flex-end; gap:clamp(12px,1.6vw,28px);">
+        <a href="index.html" style="font-size:15px; font-weight:500;">Home</a>
+        <a href="about.html" style="font-size:15px; font-weight:500;">About</a>
+        <a href="work.html" style="font-size:15px; font-weight:500;">Work</a>
+        <a href="services.html" style="font-size:15px; font-weight:500;">Services</a>
+        <a href="approach.html" style="font-size:15px; font-weight:500;">Approach</a>
+        <a href="#top" style="font-size:15px; font-weight:500; color:#A855F7;">Contact</a>
+      </nav>
+
+      <div style="position:relative; width:100%; max-width:640px; display:flex; flex-direction:column; gap:clamp(18px,2vw,26px); padding:clamp(22px,2.6vw,40px); border-radius:24px; border:1px solid rgba(255,255,255,.16); background:rgba(12,12,12,.62); backdrop-filter:blur(28px) saturate(175%); -webkit-backdrop-filter:blur(28px) saturate(175%); box-shadow:0 60px 110px -60px rgba(0,0,0,1), 0 0 90px -30px rgba(124,43,245,.5);">
+
+        <div style="display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+          <span style="display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.55);">
+            <span style="width:7px; height:7px; border-radius:50%; background:#22C55E; animation:tgPulse 1.8s ease infinite;"></span>
+            Ava is online · average reply 11s
+          </span>
+          <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">Free consultation</span>
+        </div>
+
+        <div style="font-size:clamp(24px,2.6vw,42px); font-weight:900; letter-spacing:-0.045em; line-height:1.02; text-wrap:balance;">Seven answers and we<br />can be useful to you.</div>
+
+        <div style="display:flex; flex-direction:column; gap:10px;">
+          <div style="position:relative; height:4px; border-radius:2px; background:rgba(255,255,255,.1); overflow:hidden;">
+            <span style="position:absolute; inset:0 auto 0 0; width:{{ meterW }}; background:linear-gradient(90deg,#7C2BF5,#A855F7); border-radius:2px; transition:width .5s cubic-bezier(.22,1,.36,1);"></span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42);">
+            <span>{{ meterLabel }}</span>
+            <span>{{ meterHint }}</span>
+          </div>
+        </div>
+
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex; flex-direction:column; gap:16px; padding:clamp(20px,2.4vw,32px); border-radius:18px; border:1px solid rgba(168,85,247,.4); background:rgba(124,43,245,.14);">
+            <span style="font-size:clamp(22px,2.2vw,34px); font-weight:900; letter-spacing:-0.04em; line-height:1.05;">Got it. Ava has your brief.</span>
+            <p style="margin:0; font-size:15px; line-height:1.6; color:rgba(255,255,255,.72);">A human reads it next: one reply, in one business day, with what we would do first and whether we are the right people at all.</p>
+            <button onClick="{{ reset }}" style="align-self:flex-start; padding:13px 24px; border-radius:999px; cursor:pointer; background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.18); color:#fff; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase;" style-hover="background:rgba(124,43,245,.3); border-color:rgba(168,85,247,.55);">Send another</button>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex; flex-direction:column; gap:clamp(16px,1.8vw,22px);">
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:12px;">
+              <sc-for list="{{ texts }}" as="t" hint-placeholder-count="5">
+                <label style="display:flex; flex-direction:column; gap:7px;">
+                  <span style="font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45);">{{ t.label }}</span>
+                  <input type="{{ t.type }}" value="{{ t.value }}" onChange="{{ t.set }}" placeholder="{{ t.placeholder }}" style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#fff; font-family:Archivo, sans-serif; font-size:15px; outline:none; transition:border-color .3s ease, background .3s ease;" style-focus="border-color:rgba(168,85,247,.7); background:rgba(124,43,245,.1);" />
+                </label>
+              </sc-for>
+            </div>
+
+            <div style="display:flex; flex-direction:column; gap:10px;">
+              <span style="font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45);">What do you need? Pick any</span>
+              <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                <sc-for list="{{ chips }}" as="c" hint-placeholder-count="6">
+                  <button onClick="{{ c.toggle }}" style="padding:10px 16px; border-radius:999px; cursor:pointer; font-family:Archivo, sans-serif; font-size:13.5px; font-weight:600; letter-spacing:-0.01em; background:{{ c.bg }}; color:{{ c.fg }}; border:1px solid {{ c.bd }}; transition:background .25s ease, color .25s ease, border-color .25s ease;">{{ c.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr)); gap:12px;">
+              <sc-for list="{{ selects }}" as="s" hint-placeholder-count="4">
+                <label style="display:flex; flex-direction:column; gap:7px;">
+                  <span style="font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45);">{{ s.label }}</span>
+                  <select value="{{ s.value }}" onChange="{{ s.set }}" style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#fff; font-family:Archivo, sans-serif; font-size:15px; outline:none; appearance:none; cursor:pointer;" style-focus="border-color:rgba(168,85,247,.7);">
+                    <sc-for list="{{ s.options }}" as="o" hint-placeholder-count="5">
+                      <option value="{{ o }}">{{ o }}</option>
+                    </sc-for>
+                  </select>
+                </label>
+              </sc-for>
+            </div>
+
+            <label style="display:flex; flex-direction:column; gap:7px;">
+              <span style="font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45);">Where is growth stuck right now?</span>
+              <textarea value="{{ note }}" onChange="{{ setNote }}" rows="4" placeholder="Spend is up, pipeline is flat. Tracking nobody trusts. Launching in six weeks with no site." style="width:100%; padding:14px 16px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#fff; font-family:Archivo, sans-serif; font-size:15px; line-height:1.55; resize:vertical; outline:none; transition:border-color .3s ease;" style-focus="border-color:rgba(168,85,247,.7);"></textarea>
+            </label>
+
+            <div style="display:flex; flex-wrap:wrap; align-items:center; gap:14px;">
+              <button onClick="{{ submit }}" style="display:inline-flex; align-items:center; gap:14px; padding:15px 15px 15px 28px; border-radius:999px; cursor:pointer; background:#7C2BF5; border:none; color:#fff; font-family:Archivo, sans-serif; font-size:15px; font-weight:700; letter-spacing:-0.01em; transition:transform .3s ease, box-shadow .3s ease;" style-hover="transform:translateY(-3px); box-shadow:0 20px 50px -20px rgba(124,43,245,.9);">
+                Send the brief
+                <span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.2); font-size:14px;">↗</span>
+              </button>
+              <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.4);">{{ readyLabel }}</span>
+            </div>
+
+            <div style="display:flex; gap:8px; flex-wrap:wrap; padding-top:4px;">
+              <sc-for list="{{ promises }}" as="p" hint-placeholder-count="3">
+                <span style="padding:8px 15px; border-radius:999px; border:1px solid rgba(255,255,255,.14); font-family:'JetBrains Mono', monospace; font-size:9.5px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.55);">{{ p }}</span>
+              </sc-for>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <span style="position:absolute; left:clamp(20px,2.4vw,44px); bottom:clamp(20px,2.4vw,40px); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.3);">drop contact image here</span>
+    </div>
+  </div>
+
+  <dc-import name="Taghash Footer" hint-size="100%,420px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = {
+      i: 0, sent: false,
+      name: "", email: "", company: "", phone: "", site: "",
+      picks: [], goal: "", budget: "", timeline: "", role: "", note: ""
+    };
+  }
+  componentDidMount() { this._t = setInterval(() => this.setState(s => ({ i: (s.i + 1) % 4 })), 2800); }
+  componentWillUnmount() { clearInterval(this._t); }
+  renderVals() {
+    const s = this.state;
+    const set = (k) => (e) => this.setState({ [k]: e.target.value });
+    const TEXTS = [
+      { k: "name", label: "Your name", type: "text", placeholder: "Aditya" },
+      { k: "email", label: "Work email", type: "email", placeholder: "you@company.com" },
+      { k: "company", label: "Company", type: "text", placeholder: "Company name" },
+      { k: "phone", label: "Phone / WhatsApp", type: "tel", placeholder: "+91" },
+      { k: "site", label: "Website", type: "text", placeholder: "company.com" }
+    ];
+    const SELECTS = [
+      { k: "goal", label: "Main goal", options: ["Select one", "More qualified leads", "More revenue from existing traffic", "Launch something new", "Fix tracking and reporting", "Automate the operations", "Not sure yet"] },
+      { k: "budget", label: "Monthly budget", options: ["Select one", "Under ₹1L", "₹1L – ₹3L", "₹3L – ₹10L", "₹10L+", "Tell me what it should be"] },
+      { k: "timeline", label: "When do you start", options: ["Select one", "Yesterday", "This month", "This quarter", "Just exploring"] },
+      { k: "role", label: "Your role", options: ["Select one", "Founder / CEO", "Marketing lead", "In-house team", "Agency or partner", "Other"] }
+    ];
+    const CHIPS = ["Performance marketing", "Automations & bots", "GEO / AEO / SEO", "Content & PR", "UX & website", "Engineering & DevOps"];
+    const answered = ["name", "email", "company", "goal", "budget", "timeline", "note"].filter(k => String(s[k] || "").trim() && s[k] !== "Select one").length + (s.picks.length ? 1 : 0);
+    const total = 8;
+    const ready = String(s.name || "").trim() && String(s.email || "").trim();
+    const LINES = ["Let's talk.", "Or don't. Your competitor will.", "Ten minutes. No deck.", "We'll tell you if we're wrong for it."];
+    return {
+      phrases: LINES.map((t, j) => ({
+        text: t,
+        op: j === s.i ? 1 : 0,
+        tr: j === s.i ? "translateY(0)" : (j === (s.i + 3) % 4 ? "translateY(-14px)" : "translateY(14px)"),
+        bl: j === s.i ? "0px" : "8px"
+      })),
+      sent: !!s.sent,
+      notSent: !s.sent,
+      meterW: Math.round((answered / total) * 100) + "%",
+      meterLabel: answered + " of " + total + " answered",
+      meterHint: answered >= 6 ? "Enough to be useful" : "Two minutes, tops",
+      readyLabel: ready ? "Ready to send" : "Name and email needed",
+      texts: TEXTS.map(t => ({ label: t.label, type: t.type, placeholder: t.placeholder, value: s[t.k], set: set(t.k) })),
+      selects: SELECTS.map(x => ({ label: x.label, options: x.options, value: s[x.k] || "Select one", set: set(x.k) })),
+      chips: CHIPS.map(c => {
+        const on = s.picks.indexOf(c) > -1;
+        return {
+          label: c,
+          bg: on ? "rgba(124,43,245,.35)" : "rgba(255,255,255,.04)",
+          fg: on ? "#fff" : "rgba(255,255,255,.66)",
+          bd: on ? "rgba(168,85,247,.65)" : "rgba(255,255,255,.14)",
+          toggle: () => this.setState(st => ({ picks: st.picks.indexOf(c) > -1 ? st.picks.filter(x => x !== c) : st.picks.concat([c]) }))
+        };
+      }),
+      note: s.note,
+      setNote: set("note"),
+      submit: () => { if (ready) this.setState({ sent: true }); },
+      reset: () => this.setState({ sent: false, name: "", email: "", company: "", phone: "", site: "", picks: [], goal: "", budget: "", timeline: "", role: "", note: "" }),
+      promises: ["Reply in 1 business day", "No retainer minimum", "No drip sequence"],
+      onGlow: (e) => {
+        const host = e.currentTarget, r = host.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const g = host.querySelector("[data-glow]");
+        if (g) { g.style.opacity = "1"; g.style.transform = "translate3d(" + x + "px," + y + "px,0)"; }
+      },
+      offGlow: (e) => {
+        const g = e.currentTarget.querySelector("[data-glow]"); if (g) g.style.opacity = "0";
+      },
+      actions: [
+        { icon: "✆", label: "Call", href: "tel:+919000000000" },
+        { icon: "✉", label: "Email", href: "mailto:business@taghashmedia.com" },
+        { icon: "➤", label: "Route", href: "#top" }
+      ],
+      fields: [
+        { label: "Phone", value: "+91 90000 00000", href: "tel:+919000000000" },
+        { label: "Email", value: "business@taghashmedia.com", href: "mailto:business@taghashmedia.com" },
+        { label: "Address", value: "Taghash Media\nIndiranagar, 100 Ft Road\nBengaluru 560038\nIndia", href: "#top" }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

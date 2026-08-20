@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin:0; padding:0; background:#050505; }
+  * { box-sizing:border-box; }
+  a { color:#ffffff; text-decoration:none; }
+  a:hover { color:#A855F7; }
+  ::selection { background:#7C2BF5; color:#fff; }
+  @keyframes tgPulse { 0%,100%{opacity:.3;} 50%{opacity:1;} }
+  @keyframes tgRise { from { opacity:0; transform:translate3d(0,28px,0);} to { opacity:1; transform:none;} }
+</style>
+</helmet>
+
+<div style="background:#050505; color:#FAFAFA; font-family:Archivo, Helvetica, sans-serif;">
+
+  <header data-screen-label="Header" style="position:fixed; top:0; left:0; right:0; z-index:120; display:flex; align-items:flex-start; justify-content:space-between; gap:24px;">
+    <div ref="{{ navPillRef }}" style="display:flex; align-items:center; gap:clamp(14px,2vw,34px); background:rgba(17,17,17,.34); backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%); border-right:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); box-shadow:0 18px 50px -30px rgba(0,0,0,.9); border-bottom-right-radius:14px; padding:11px clamp(18px,2vw,30px) 11px clamp(16px,1.8vw,26px); transition:background .35s ease, border-color .35s ease;">
+      <a href="index.html" style="display:block; flex:none; width:84px; height:34px; overflow:hidden; position:relative;">
+        <img src="uploads/photo_2024-08-27_03.04.55-removebg-preview%20(2).png" alt="Taghash Media" style="position:absolute; top:50%; left:50%; width:176px; height:176px; transform:translate(-50%,-46.7%); display:block;" />
+      </a>
+      <nav style="display:flex; align-items:center; gap:clamp(12px,1.6vw,28px);">
+        <a href="work.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Work</a>
+        <span onMouseEnter="{{ openMenu }}" onMouseLeave="{{ closeMenu }}" style="position:relative; display:inline-flex; align-items:center; gap:7px; cursor:pointer;">
+          <a href="services.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:#A855F7;">Services</a>
+          <span style="font-size:9px; line-height:1; opacity:.55; transform:{{ menuArrow }}; transition:transform .3s ease;">▼</span>
+          <div style="position:absolute; top:100%; left:-18px; width:min(336px,82vw); padding:22px 10px 10px; border-radius:18px; background:rgba(14,14,14,.72); backdrop-filter:blur(26px) saturate(170%); -webkit-backdrop-filter:blur(26px) saturate(170%); border:1px solid rgba(255,255,255,.12); box-shadow:0 40px 80px -40px rgba(0,0,0,1), 0 0 60px -24px rgba(124,43,245,.5); opacity:{{ menuOpacity }}; visibility:{{ menuVis }}; transform:{{ menuShift }}; transition:opacity .28s ease, transform .32s cubic-bezier(.22,1,.36,1), visibility .28s;">
+            <sc-for list="{{ serviceLinks }}" as="l" hint-placeholder-count="6">
+              <a href="{{ l.href }}" style="display:flex; align-items:center; gap:12px; padding:12px 15px; border-radius:11px; color:{{ l.color }}; transition:background .25s ease, color .25s ease;" style-hover="background:rgba(124,43,245,.22); color:#fff;">
+                <span style="font-size:14px; font-weight:500; letter-spacing:-0.015em; line-height:1.3;">{{ l.name }}</span>
+              </a>
+            </sc-for>
+          </div>
+        </span>
+        <a href="approach.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Approach</a>
+        <a href="about.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">About</a>
+        <a href="contact.html" style="font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.85);" style-hover="color:#A855F7;">Contact</a>
+      </nav>
+    </div>
+    <a href="contact.html" ref="{{ ctaPillRef }}" style="display:flex; align-items:center; gap:10px; background:rgba(17,17,17,.34); backdrop-filter:blur(18px) saturate(150%); -webkit-backdrop-filter:blur(18px) saturate(150%); border-left:1px solid rgba(255,255,255,.07); border-bottom:1px solid rgba(255,255,255,.07); box-shadow:0 18px 50px -30px rgba(0,0,0,.9), 0 0 34px -6px rgba(124,43,245,.42), inset 0 0 22px -12px rgba(168,85,247,.6); border-bottom-left-radius:14px; padding:17px clamp(20px,2vw,30px); font-size:15px; font-weight:500; color:rgba(255,255,255,.85); transition:background .35s ease, border-color .35s ease, color .3s ease;" style-hover="color:#fff;">
+      Request a Call
+      <span style="width:7px; height:7px; border-radius:50%; background:#7C2BF5; animation:tgPulse 2s ease infinite;"></span>
+    </a>
+  </header>
+
+  <section id="top" data-screen-label="Service hero" onMouseMove="{{ onGlow }}" onMouseLeave="{{ offGlow }}" style="position:relative; overflow:hidden; min-height:88vh; display:flex; flex-direction:column; justify-content:flex-end; gap:clamp(22px,4vh,44px); padding:clamp(120px,18vh,200px) clamp(16px,1.6vw,26px) clamp(36px,5vh,70px);">
+    <div data-glow="1" style="position:absolute; top:0; left:0; width:640px; height:640px; margin:-320px 0 0 -320px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle, rgba(124,43,245,.30), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .45s ease; will-change:transform;"></div>
+    <div style="position:relative; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">Service {{ num }} of 06</div>
+    <h1 data-glow-lift="1" style="position:relative; margin:0; font-size:clamp(40px,8.6vw,148px); font-weight:900; letter-spacing:-0.06em; line-height:.85; text-transform:uppercase; max-width:16ch; animation:tgRise .8s cubic-bezier(.22,1,.36,1) both;">{{ title }}</h1>
+    <div style="position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr)); gap:clamp(20px,3vw,60px); align-items:end;">
+      <p style="margin:0; max-width:52ch; font-size:clamp(16px,1.5vw,22px); line-height:1.55; color:rgba(255,255,255,.6); text-wrap:pretty; animation:tgRise .8s cubic-bezier(.22,1,.36,1) .15s both;">{{ intro }}</p>
+      <div style="display:flex; gap:10px; flex-wrap:wrap; justify-self:end;">
+        <a href="contact.html" style="display:inline-flex; align-items:center; gap:12px; padding:16px 30px; border-radius:999px; background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 24px 60px -34px rgba(0,0,0,.9), 0 0 40px -12px rgba(124,43,245,.6); color:#fff; font-size:15px; font-weight:600; transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.32); border-color:rgba(168,85,247,.55); transform:translateY(-2px);">{{ heroCta }}</a>
+        <a href="work.html" style="display:inline-flex; align-items:center; padding:16px 28px; border-radius:999px; border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.7); font-size:15px; font-weight:600; transition:color .3s ease, border-color .3s ease;" style-hover="color:#fff; border-color:rgba(168,85,247,.55);">See the proof</a>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Problem" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr)); gap:clamp(20px,3vw,70px);">
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4);">The usual problem</div>
+      <p style="margin:0; max-width:34ch; font-size:clamp(21px,2.5vw,42px); font-weight:800; letter-spacing:-0.04em; line-height:1.14; text-wrap:pretty;">{{ problem }}</p>
+      <p style="margin:0; max-width:48ch; font-size:clamp(15px,1.3vw,19px); line-height:1.65; color:rgba(255,255,255,.55); text-wrap:pretty;">{{ problemBody }}</p>
+    </div>
+  </section>
+
+  <section data-screen-label="What you get" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(40px,5vw,80px) clamp(16px,1.6vw,26px) clamp(50px,6vw,90px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:clamp(22px,3vw,40px);">
+      <h2 style="margin:0; font-size:clamp(26px,4.2vw,68px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">What lands<br />on your desk</h2>
+      <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4);">Scope sheet / {{ title }}</span>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,.12); border-radius:18px; overflow:hidden;">
+      <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.45fr); gap:clamp(12px,2vw,40px); padding:14px clamp(16px,2vw,28px); background:rgba(255,255,255,.04); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.45);">
+        <span>Line item</span>
+        <span>What that means in practice</span>
+      </div>
+      <sc-for list="{{ deliverables }}" as="d" hint-placeholder-count="6">
+        <div style="display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.45fr); gap:clamp(12px,2vw,40px); align-items:baseline; padding:clamp(16px,2vw,26px) clamp(16px,2vw,28px); border-top:1px solid rgba(255,255,255,.08); transition:background .3s ease, box-shadow .3s ease;" style-hover="background:rgba(124,43,245,.10); box-shadow:inset 3px 0 0 #7C2BF5;">
+          <span style="font-size:clamp(17px,1.7vw,26px); font-weight:800; letter-spacing:-0.03em; line-height:1.14;">{{ d.title }}</span>
+          <span style="font-size:clamp(14px,1.15vw,17px); line-height:1.6; color:rgba(255,255,255,.58); text-wrap:pretty;">{{ d.body }}</span>
+        </div>
+      </sc-for>
+    </div>
+    <p style="margin:clamp(16px,2vw,24px) 0 0; max-width:62ch; font-size:14px; line-height:1.6; color:rgba(255,255,255,.42);">Anything not on this sheet gets quoted before it gets built. No mystery line items at the end of the month.</p>
+  </section>
+
+  <section data-screen-label="Mid CTA" style="padding:0 clamp(16px,1.6vw,26px) clamp(50px,6vw,90px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:clamp(20px,3vw,40px); padding:clamp(26px,3.4vw,54px); border-radius:20px; background:rgba(255,255,255,.05); backdrop-filter:blur(24px) saturate(165%); -webkit-backdrop-filter:blur(24px) saturate(165%); border:1px solid rgba(255,255,255,.13); box-shadow:0 40px 90px -50px rgba(0,0,0,1), 0 0 80px -30px rgba(124,43,245,.55);">
+      <div style="font-size:clamp(20px,2.4vw,40px); font-weight:900; letter-spacing:-0.04em; line-height:1.06; max-width:20ch; text-wrap:pretty;">{{ midCta }}</div>
+      <a href="contact.html" style="display:inline-flex; align-items:center; gap:14px; padding:16px 16px 16px 30px; border-radius:999px; background:#7C2BF5; color:#fff; font-size:15px; font-weight:700; transition:transform .3s ease;" style-hover="color:#fff; transform:translateY(-2px);">
+        Request a call
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:32px; height:32px; border-radius:50%; background:rgba(255,255,255,.18); font-size:14px;">↗</span>
+      </a>
+    </div>
+  </section>
+
+  <section data-screen-label="Process" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:clamp(26px,3.4vw,50px);">
+      <h2 style="margin:0; max-width:18ch; font-size:clamp(28px,4.6vw,78px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">How it actually goes</h2>
+      <div style="display:flex; flex-direction:column; gap:8px; align-items:flex-end; text-align:right;">
+        <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4);">Stage {{ stageNum }} of 04 · {{ stageWhen }}</span>
+        <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">Hover a stage</span>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr)); gap:clamp(10px,1.4vw,20px); align-items:stretch;">
+      <sc-for list="{{ stages }}" as="s" hint-placeholder-count="4">
+        <div onMouseEnter="{{ s.hover }}" style="position:relative; display:flex; flex-direction:column; gap:clamp(12px,1.4vw,18px); padding:clamp(16px,1.8vw,26px) clamp(14px,1.4vw,22px) clamp(20px,2.4vw,34px); border-radius:16px; cursor:default; background:{{ s.bg }}; transition:background .4s ease;">
+          <div style="position:relative; height:3px; border-radius:2px; background:rgba(255,255,255,.12); overflow:hidden;">
+            <span style="position:absolute; inset:0 auto 0 0; width:{{ s.barW }}; background:linear-gradient(90deg,#7C2BF5,#A855F7); border-radius:2px; transition:width .7s cubic-bezier(.22,1,.36,1);"></span>
+          </div>
+          <div style="display:flex; align-items:baseline; justify-content:space-between; gap:10px;">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:{{ s.whenColor }}; transition:color .35s ease;">{{ s.when }}</span>
+            <span style="width:7px; height:7px; border-radius:50%; background:{{ s.dot }}; transition:background .35s ease;"></span>
+          </div>
+          <div style="font-size:clamp(54px,6.6vw,110px); font-weight:900; letter-spacing:-0.07em; line-height:.8; color:{{ s.numFill }}; -webkit-text-stroke:1px {{ s.numStroke }}; transition:color .4s ease, -webkit-text-stroke-color .4s ease;">{{ s.num }}</div>
+          <div style="font-size:clamp(19px,1.9vw,30px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; line-height:.98;">{{ s.title }}</div>
+          <p style="margin:0; font-size:clamp(14px,1.15vw,17px); line-height:1.6; color:rgba(255,255,255,.6); text-wrap:pretty; opacity:{{ s.bodyOp }}; transform:{{ s.bodyShift }}; transition:opacity .45s ease, transform .5s cubic-bezier(.22,1,.36,1);">{{ s.body }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section data-screen-label="Service cases" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:18px; margin-bottom:clamp(24px,3vw,44px);">
+      <h2 style="margin:0; max-width:20ch; font-size:clamp(26px,4.2vw,70px); font-weight:900; letter-spacing:-0.05em; line-height:.94; text-transform:uppercase;">This service, in the wild</h2>
+      <a href="work.html" style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">All work →</a>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr)); gap:clamp(12px,1.6vw,22px);">
+      <sc-for list="{{ cases }}" as="c" hint-placeholder-count="3">
+        <a href="work.html" style="display:flex; flex-direction:column; gap:14px; padding:clamp(14px,1.4vw,18px); border-radius:18px; border:1px solid rgba(255,255,255,.1); background:rgba(255,255,255,.03); transition:background .3s ease, border-color .3s ease, transform .4s cubic-bezier(.22,1,.36,1);" style-hover="color:#fff; background:rgba(124,43,245,.12); border-color:rgba(168,85,247,.45); transform:translateY(-5px);">
+          <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:repeating-linear-gradient(135deg,#0f0f0f 0 12px,#171717 12px 24px); display:flex; align-items:flex-end; padding:14px;">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.4);">{{ c.slot }}</span>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
+            <span style="font-size:clamp(19px,1.8vw,28px); font-weight:900; letter-spacing:-0.04em; text-transform:uppercase; line-height:1;">{{ c.client }}</span>
+            <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">{{ c.metric }}</span>
+          </div>
+          <p style="margin:0 0 4px; font-size:14.5px; line-height:1.55; color:rgba(255,255,255,.58); text-wrap:pretty;">{{ c.result }}</p>
+        </a>
+      </sc-for>
+    </div>
+    <p style="margin:clamp(16px,2vw,24px) 0 0; font-size:14px; line-height:1.6; color:rgba(255,255,255,.4);">Full write-ups, numbers and what we would do differently live on the work page.</p>
+  </section>
+
+  <section data-screen-label="Bot assist" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(min(340px,100%),1fr)); gap:clamp(20px,3vw,60px); align-items:center;">
+      <div style="display:flex; flex-direction:column; gap:clamp(16px,2vw,26px);">
+        <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">Who's on it</div>
+        <p style="margin:0; font-size:clamp(20px,2.2vw,36px); font-weight:800; letter-spacing:-0.035em; line-height:1.16; text-wrap:pretty;">{{ botLine }}</p>
+        <a href="about.html" style="align-self:flex-start; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#A855F7;">Meet the crew →</a>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <sc-for list="{{ botTags }}" as="b" hint-placeholder-count="2">
+          <span style="display:inline-flex; align-items:center; gap:10px; padding:13px 22px; border-radius:999px; background:rgba(255,255,255,.05); backdrop-filter:blur(20px); -webkit-backdrop-filter:blur(20px); border:1px solid rgba(255,255,255,.12); font-size:15px; font-weight:600; letter-spacing:-0.01em;">
+            <span style="width:7px; height:7px; border-radius:50%; background:#7C2BF5; animation:tgPulse 2s ease infinite;"></span>
+            {{ b }}
+          </span>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Survey" onMouseMove="{{ onGlow }}" onMouseLeave="{{ offGlow }}" style="position:relative; overflow:hidden; border-top:1px solid rgba(255,255,255,.1); padding:clamp(56px,7vw,110px) clamp(16px,1.6vw,26px);">
+    <div data-glow="1" style="position:absolute; top:0; left:0; width:640px; height:640px; margin:-320px 0 0 -320px; border-radius:50%; pointer-events:none; z-index:0; background:radial-gradient(circle, rgba(124,43,245,.26), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .45s ease; will-change:transform;"></div>
+    <div style="position:relative; display:grid; grid-template-columns:auto 1fr; gap:clamp(14px,2vw,34px); align-items:start;">
+      <div style="font-size:clamp(40px,7vw,120px); font-weight:900; letter-spacing:-0.06em; line-height:.82; color:#A855F7;">7:</div>
+      <div data-glow-lift="1" style="font-size:clamp(34px,7vw,120px); font-weight:900; letter-spacing:-0.055em; line-height:.85; text-transform:uppercase;">Enough<br />about us</div>
+    </div>
+
+    <div style="position:relative; margin:clamp(26px,4vw,56px) 0; height:1px; background:rgba(255,255,255,.18);">
+      <span style="position:absolute; left:50%; top:50%; width:11px; height:11px; border-radius:50%; background:#A855F7; transform:translate(-50%,-50%);"></span>
+    </div>
+
+    <div style="position:relative; display:grid; grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr)); gap:clamp(24px,4vw,60px); align-items:start;">
+      <div style="display:flex; flex-direction:column; gap:clamp(16px,2vw,26px);">
+        <div style="font-size:clamp(20px,2.4vw,38px); font-weight:800; letter-spacing:-0.035em; text-transform:uppercase; line-height:1.12;">7 questions. No discovery call theatre, no 40-slide deck.</div>
+        <p style="margin:0; max-width:44ch; font-size:clamp(15px,1.25vw,18px); line-height:1.65; color:rgba(255,255,255,.55); text-wrap:pretty;">Answer them and you get a straight opinion back: what we would do first, what we would leave alone, and whether we are the wrong people for it.</p>
+        <a href="contact.html" style="align-self:flex-start; display:inline-flex; align-items:center; gap:12px; padding:16px 30px; border-radius:999px; background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 24px 60px -34px rgba(0,0,0,.9); color:#fff; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.3); border-color:rgba(168,85,247,.55); transform:translateY(-2px);">
+          Take the survey
+          <span style="width:6px; height:6px; border-radius:50%; background:#A855F7;"></span>
+        </a>
+      </div>
+      <div style="display:flex; flex-direction:column;">
+        <sc-for list="{{ questions }}" as="q" hint-placeholder-count="7">
+          <div style="display:grid; grid-template-columns:34px 1fr; gap:14px; align-items:baseline; padding:14px 6px; border-top:1px solid rgba(255,255,255,.1); transition:padding-left .35s cubic-bezier(.22,1,.36,1), background .3s ease;" style-hover="padding-left:16px; background:rgba(124,43,245,.08);">
+            <span style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.12em; color:#A855F7;">{{ q.n }}</span>
+            <span style="font-size:clamp(15px,1.35vw,20px); font-weight:600; letter-spacing:-0.02em; line-height:1.35; color:rgba(255,255,255,.82);">{{ q.t }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section data-screen-label="Other services" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(50px,6vw,100px) clamp(16px,1.6vw,26px);">
+    <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:rgba(255,255,255,.4); margin-bottom:clamp(18px,2.4vw,34px);">Other services</div>
+    <sc-for list="{{ others }}" as="o" hint-placeholder-count="5">
+      <a href="{{ o.href }}" style="display:grid; grid-template-columns:1fr auto; align-items:center; gap:20px; padding:clamp(16px,2vw,28px) 4px; border-top:1px solid rgba(255,255,255,.12); transition:padding-left .35s cubic-bezier(.22,1,.36,1), color .3s ease;" style-hover="padding-left:22px; color:#fff;">
+        <span style="font-size:clamp(20px,2.8vw,44px); font-weight:800; letter-spacing:-0.04em; text-transform:uppercase; line-height:1;">{{ o.name }}</span>
+        <span style="font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; color:#A855F7;">→</span>
+      </a>
+    </sc-for>
+  </section>
+
+  <section data-screen-label="Close" style="border-top:1px solid rgba(255,255,255,.1); padding:clamp(60px,8vw,130px) clamp(16px,1.6vw,26px);">
+    <h2 style="margin:0 0 clamp(24px,3vw,44px); max-width:20ch; font-size:clamp(30px,5.4vw,92px); font-weight:900; letter-spacing:-0.05em; line-height:.96; text-transform:uppercase; text-wrap:pretty;">{{ closeLine }}</h2>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+      <a href="contact.html" style="display:inline-flex; align-items:center; gap:12px; padding:18px 34px; border-radius:999px; background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 24px 60px -34px rgba(0,0,0,.9), 0 0 40px -10px rgba(124,43,245,.5); color:#fff; font-size:16px; font-weight:600; transition:background .3s ease, border-color .3s ease, transform .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.32); border-color:rgba(168,85,247,.55); transform:translateY(-2px);">Request a call</a>
+      <a href="mailto:business@taghashmedia.com" style="display:inline-flex; align-items:center; padding:18px 32px; border-radius:999px; border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.7); font-size:16px; font-weight:600; transition:color .3s ease, border-color .3s ease;" style-hover="color:#fff; border-color:rgba(168,85,247,.55);">business@taghashmedia.com</a>
+    </div>
+  </section>
+
+  <dc-import name="Taghash Footer" hint-size="100%,460px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;service&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;performance-marketing&quot;,&quot;automation&quot;,&quot;geo-seo&quot;,&quot;content-pr&quot;,&quot;ux-web&quot;,&quot;engineering&quot;],&quot;default&quot;:&quot;performance-marketing&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+const SERVICES = [
+  {
+    cases: [
+      { client: "Sacred Chants", metric: "5.8x ROAS", result: "Paid social and search rebuilt across four markets and three languages.", slot: "case cover / 4:3" },
+      { client: "BullzEye", metric: "CAC −38%", result: "Cost per acquisition down 38% in a quarter without cutting volume.", slot: "case cover / 4:3" },
+      { client: "Tarzanway", metric: "+312%", result: "Booked trips up 312% across two seasons on the same media budget.", slot: "case cover / 4:3" }
+    ],
+    slug: "performance-marketing", title: "Performance Marketing",
+    intro: "Paid media that's judged on revenue, not reach. We buy, test and cut creative weekly across Meta, Google and LinkedIn, and report the number your CFO cares about.",
+    heroCta: "Get a media audit",
+    problem: "Your spend went up. Your pipeline didn't.",
+    problemBody: "Most accounts we inherit aren't broken because the targeting is wrong. They're broken because nobody is producing enough new creative to keep the algorithm fed, the landing page contradicts the ad, and success is measured on a platform dashboard that has every reason to flatter itself.",
+    deliverables: [
+      { title: "Full-funnel media buying", body: "Meta, Google, YouTube, LinkedIn, planned as one budget, not five silos." },
+      { title: "Creative testing system", body: "A weekly cadence of new angles, hooks and formats, with a kill rule so losers die fast." },
+      { title: "Landing page CRO", body: "The page the ad promised. Built, tested and iterated alongside the campaign." },
+      { title: "Honest attribution", body: "Platform data reconciled against CRM and call data. One blended number, defensible in a board meeting." },
+      { title: "Lifecycle & retention", body: "Email, SMS and remarketing so the leads you paid for don't quietly go cold." },
+      { title: "Weekly reporting", body: "What we spent, what it returned, what changes next week. Fifteen minutes, no theatre." }
+    ],
+    midCta: "Want us to look at your ad account before you spend another rupee?",
+    steps: [
+      { title: "Audit", body: "We go through the account, the creative, the landing pages and the tracking. You get the findings whether or not you hire us.", when: "Week 1" },
+      { title: "Rebuild", body: "Structure, tracking, and the first wave of creative. Usually fewer campaigns than you had, doing more.", when: "Weeks 2–3" },
+      { title: "Scale", body: "Weekly testing cycles, budget shifted toward what compounds, spend increased only where the maths holds.", when: "Month 2+" },
+      { title: "Report", body: "Zen produces one blended view every month. We meet, argue about it, adjust.", when: "Ongoing" }
+    ],
+    botLine: "Ava handles every lead this generates within seconds. Scrappy watches what your competitors are bidding on. Zen tells you whether any of it worked.",
+    botTags: ["Ava · lead response", "Scrappy · competitor ads", "Zen · blended ROAS"],
+    closeLine: "Let's find out what your account is actually doing."
+  },
+  {
+    cases: [
+      { client: "The Motoring Club", metric: "2.4k members", result: "Members onboarded end to end without a single manual email.", slot: "case cover / 4:3" },
+      { client: "BullzEye", metric: "15s replies", result: "Every enquiry answered in under fifteen seconds, day or night.", slot: "case cover / 4:3" },
+      { client: "Tarzanway", metric: "0 lost leads", result: "Enquiries routed, chased and logged before anyone opened a laptop.", slot: "case cover / 4:3" }
+    ],
+    slug: "automation", title: "Chatbots, Automations & Workflow Builds",
+    intro: "AI agents and automations that do real work: answering, qualifying, routing, following up, updating the CRM. Staff, not gimmicks.",
+    heroCta: "Map my workflows",
+    problem: "Your team is doing work a machine should have finished at 2am.",
+    problemBody: "Enquiries sit in an inbox overnight. Someone re-types the same data into three systems. Follow-ups happen when a human remembers. None of this is a people problem. It's an absence of plumbing, and it's costing you deals you already paid to generate.",
+    deliverables: [
+      { title: "AI chat & voice agents", body: "Answer, qualify and book, on the phone and on the site, in your tone of voice." },
+      { title: "CRM automation", body: "Leads routed, enriched, scored and assigned without anyone touching a spreadsheet." },
+      { title: "Follow-up sequences", body: "Every enquiry chased properly, on schedule, until it converts or clearly doesn't." },
+      { title: "Internal ops tooling", body: "The small ugly tools that remove an hour a day from someone's job." },
+      { title: "Integrations", body: "Zapier, Make, or custom. Whichever survives contact with your stack." },
+      { title: "Monitoring", body: "Alerts when an automation fails, because silent failure is worse than no automation." }
+    ],
+    midCta: "Show us your worst repetitive process. We'll tell you if it's automatable.",
+    steps: [
+      { title: "Map", body: "We sit with your team and trace what actually happens, not what the SOP says happens.", when: "Week 1" },
+      { title: "Prototype", body: "One workflow built end to end, in production, small enough to judge honestly.", when: "Weeks 2–3" },
+      { title: "Roll out", body: "The rest, in priority order, each with a fallback path to a human.", when: "Month 2" },
+      { title: "Maintain", body: "Ongoing monitoring and iteration. Automations rot if nobody owns them.", when: "Ongoing" }
+    ],
+    botLine: "This is the service that built Ava, Scrappy, Julio and Zen. We're not selling you something we haven't run on ourselves for years.",
+    botTags: ["Ava · the reference build", "Julio · process monitoring"],
+    closeLine: "Give the boring work to something that doesn't get bored."
+  },
+  {
+    cases: [
+      { client: "Sacred Chants", metric: "90 days", result: "Cited by AI assistants across its category inside three months.", slot: "case cover / 4:3" },
+      { client: "Tarzanway", metric: "Organic first", result: "Search became the cheapest booking channel in the account.", slot: "case cover / 4:3" },
+      { client: "BullzEye", metric: "Map pack", result: "Local visibility rebuilt around entities, schema and reviews.", slot: "case cover / 4:3" }
+    ],
+    slug: "geo-seo", title: "Generative & Search Optimization",
+    intro: "GEO, AEO and classic SEO. Being found by Google still matters. Being quoted by ChatGPT, Perplexity and AI Overviews increasingly matters more.",
+    heroCta: "Check my AI visibility",
+    problem: "Someone asked an AI for a recommendation in your category. It didn't say your name.",
+    problemBody: "Search is splitting in two. Traditional rankings still drive volume, but a growing share of buyers now get one synthesised answer with two or three brands in it. Being on page one is no longer the same thing as being in the answer, and most sites are structured for the first job only.",
+    deliverables: [
+      { title: "Generative visibility (GEO)", body: "Getting your brand into the answers AI assistants give about your category." },
+      { title: "Answer engine content (AEO)", body: "Content structured to be extracted, cited and quoted, not just crawled." },
+      { title: "Technical SEO", body: "Speed, crawlability, schema, entities. The unglamorous foundation." },
+      { title: "Local SEO", body: "Map pack, reviews, location pages. Where physical businesses actually win." },
+      { title: "Content strategy", body: "Built around real search demand and the questions buyers ask before they're ready." },
+      { title: "Tracking that includes AI", body: "Monitoring how you appear across assistants, not just rank positions." }
+    ],
+    midCta: "We'll run your brand through five AI assistants and send you exactly what they say.",
+    steps: [
+      { title: "Baseline", body: "Where you rank, where you're cited, where competitors are showing up instead of you.", when: "Week 1–2" },
+      { title: "Fix the base", body: "Technical issues, schema, entity clarity. Nothing clever works on a broken foundation.", when: "Month 1" },
+      { title: "Publish", body: "A content programme aimed at both crawlers and answer engines.", when: "Month 2+" },
+      { title: "Monitor", body: "Scrappy tracks rankings and AI mentions continuously and flags movement.", when: "Ongoing" }
+    ],
+    botLine: "Scrappy monitors your visibility across search and AI assistants daily, so a slip in the answers gets noticed in days rather than quarters.",
+    botTags: ["Scrappy · SERP & AI tracking", "Zen · organic reporting"],
+    closeLine: "Be the answer, not the fourteenth blue link."
+  },
+  {
+    cases: [
+      { client: "Unbroken Spirit", metric: "41M views", result: "A film launch that hit 41 million organic views with zero paid budget.", slot: "case cover / 4:3" },
+      { client: "Sacred Chants", metric: "40+ assets", result: "A monthly creative slate sized to the testing cadence, not the mood.", slot: "case cover / 4:3" },
+      { client: "The Motoring Club", metric: "Earned press", result: "Category coverage placed with a hook worth printing.", slot: "case cover / 4:3" }
+    ],
+    slug: "content-pr", title: "AI Content Production & PR",
+    intro: "Volume without slop. Performance creative, founder-led content and earned coverage, produced with AI where it helps and humans where it counts.",
+    heroCta: "See the content system",
+    problem: "You need forty assets a month and you have taste.",
+    problemBody: "Paid social eats creative faster than any team can hand-make it, so most brands pick a side: volume that looks generic, or craft that arrives too slowly to test. AI collapses the trade-off only if someone is holding the standard. Otherwise you've automated the production of things nobody wants to watch.",
+    deliverables: [
+      { title: "Performance creative", body: "Ad-ready video, static and motion, produced against a tested concept, at testing volume." },
+      { title: "Founder-led content", body: "Your point of view, written and filmed so it sounds like you on a good day." },
+      { title: "Editorial & ghostwriting", body: "Long-form that earns links, citations and the respect of your buyers." },
+      { title: "Digital PR", body: "Stories placed where your category reads, with a hook worth printing." },
+      { title: "UGC & creator work", body: "Sourced, briefed and managed. The format that still outperforms polish." },
+      { title: "Brand guardrails", body: "Prompts, tone rules and review gates so scale doesn't dilute the brand." }
+    ],
+    midCta: "Bring us your best-performing ad. We'll come back with ten variations worth testing.",
+    steps: [
+      { title: "Concept", body: "One idea sharp enough to survive being cut fifty ways.", when: "Week 1–2" },
+      { title: "Produce", body: "Shoot, edit, generate. A monthly slate sized to your testing cadence.", when: "Monthly" },
+      { title: "Distribute", body: "Paid, organic and earned. The same story, told natively per channel.", when: "Ongoing" },
+      { title: "Learn", body: "Winners inform next month's slate. Losers get an honest post-mortem.", when: "Monthly" }
+    ],
+    botLine: "Scrappy tells us which angles your competitors are running so we don't waste a shoot day rediscovering them.",
+    botTags: ["Scrappy · creative intel", "Zen · creative performance"],
+    closeLine: "Enough content to test properly. Good enough to be proud of."
+  },
+  {
+    cases: [
+      { client: "Tarzanway", metric: "1 decision", result: "Site rebuilt around one decision per screen, then tested on real users.", slot: "case cover / 4:3" },
+      { client: "Unbroken Spirit", metric: "11 days", result: "Campaign site designed, built and shipped in eleven days flat.", slot: "case cover / 4:3" },
+      { client: "BullzEye", metric: "AA", result: "Accessibility taken to WCAG AA without losing the brand.", slot: "case cover / 4:3" }
+    ],
+    slug: "ux-web", title: "UX & Website Design",
+    intro: "Websites designed around the decision a visitor is trying to make. Researched, prototyped, and built to convert without insulting anyone's intelligence.",
+    heroCta: "Review my site",
+    problem: "Your site is a brochure and your buyers are shopping.",
+    problemBody: "Beautiful sites lose to clear ones every time. The usual failures are structural: the offer isn't stated in the first screen, the proof is buried, and the primary action competes with six others. Redesigning the visuals without fixing that just makes the confusion look nicer.",
+    deliverables: [
+      { title: "Research & flows", body: "What visitors need to know, in what order, before they'll act." },
+      { title: "Conversion-first design", body: "Layouts built around one primary action per screen." },
+      { title: "Design systems", body: "Components your team can extend without calling us every fortnight." },
+      { title: "Prototyping", body: "Clickable and testable before anybody writes production code." },
+      { title: "Accessibility", body: "WCAG AA as standard. It's a bigger market and it's the right thing." },
+      { title: "Handoff", body: "Documented, tokenised, and understood by whoever builds it." }
+    ],
+    midCta: "We'll record a ten-minute teardown of your current site. Free, and occasionally brutal.",
+    steps: [
+      { title: "Discover", body: "Analytics, session recordings, sales calls. Where people hesitate and why.", when: "Week 1–2" },
+      { title: "Structure", body: "Sitemap, flows and wireframes agreed before any visual design.", when: "Week 3" },
+      { title: "Design", body: "High-fidelity screens and a system behind them.", when: "Month 2" },
+      { title: "Test", body: "Prototype in front of real users, then iterate before build.", when: "Pre-launch" }
+    ],
+    botLine: "Zen watches conversion by step after launch, so a drop in one part of the funnel doesn't hide inside a healthy-looking average.",
+    botTags: ["Zen · funnel analytics", "Ava · on-site chat"],
+    closeLine: "Make the next click obvious."
+  },
+  {
+    cases: [
+      { client: "The Motoring Club", metric: "2.4x faster", result: "Platform rebuilt headless and 2.4x faster on the same content.", slot: "case cover / 4:3" },
+      { client: "BullzEye", metric: "CRM live", result: "Telephony, CRM and payments joined into one working system.", slot: "case cover / 4:3" },
+      { client: "Tarzanway", metric: "Zero drama", result: "Deploys, monitoring and patching handed over as boring routine.", slot: "case cover / 4:3" }
+    ],
+    slug: "engineering", title: "Engineering & DevOps",
+    intro: "The build and everything that keeps it standing. Next.js, Webflow, WordPress, headless commerce, integrations and the infrastructure underneath.",
+    heroCta: "Talk to an engineer",
+    problem: "Marketing shipped a site. Nobody agreed to maintain it.",
+    problemBody: "The launch is the easy part. Six months later the plugins are stale, the integration broke silently, page speed has drifted, and the only person who understood the setup has left. Good engineering is mostly about what happens after the confetti.",
+    deliverables: [
+      { title: "Web builds", body: "Next.js, Webflow or WordPress, chosen for who maintains it, not for what's fashionable." },
+      { title: "Headless commerce", body: "Storefronts that stay fast as the catalogue grows." },
+      { title: "Integrations", body: "CRM, ERP, payments, telephony. The connections that make the stack one system." },
+      { title: "Infrastructure & CI/CD", body: "Deploy pipelines, staging, rollbacks. Shipping should be boring." },
+      { title: "Performance budgets", body: "Speed treated as a requirement, enforced automatically, not a launch-week scramble." },
+      { title: "Maintenance", body: "Monitoring, patching and an actual human on the other end." }
+    ],
+    midCta: "Inherited a codebase nobody understands? That's a normal Tuesday for us.",
+    steps: [
+      { title: "Assess", body: "Audit the stack, the risks and the maintenance burden you're carrying.", when: "Week 1" },
+      { title: "Architect", body: "A build plan sized to your team's ability to run it afterwards.", when: "Week 2–3" },
+      { title: "Build", body: "Sprints with a staging URL you can see from day one.", when: "Month 1–3" },
+      { title: "Operate", body: "Monitoring, patching, and improvements on a standing retainer.", when: "Ongoing" }
+    ],
+    botLine: "Julio tracks every build's dependencies and deadlines, so 'waiting on someone else' is caught the day it starts, not the week it's due.",
+    botTags: ["Julio · delivery tracking", "Zen · uptime & speed"],
+    closeLine: "Build it once. Keep it alive."
+  }
+];
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { menu: false, slug: null, stage: 0 };
+    this.navPillRef = React.createRef();
+    this.ctaPillRef = React.createRef();
+  }
+  componentDidMount() {
+    let slug = null;
+    try {
+      slug = "performance-marketing";
+    } catch (e) { slug = null; }
+    if (slug) this.setState({ slug: slug });
+    this._onScroll = () => {
+      const g = Math.max(0, Math.min(1, (window.scrollY || 0) / 220));
+      [this.navPillRef.current, this.ctaPillRef.current].forEach(el => {
+        if (!el) return;
+        el.style.background = "rgba(12,12,12," + (0.34 + 0.42 * g) + ")";
+        el.style.borderColor = "rgba(255,255,255," + (0.07 + 0.06 * g) + ")";
+      });
+    };
+    window.addEventListener("scroll", this._onScroll, { passive: true });
+    this._onScroll();
+  }
+  componentWillUnmount() { window.removeEventListener("scroll", this._onScroll); }
+  renderVals() {
+    const slug = this.state.slug || this.props.service || "performance-marketing";
+    let i = SERVICES.findIndex(s => s.slug === slug);
+    if (i < 0) i = 0;
+    const s = SERVICES[i];
+    return {
+      onGlow: (e) => {
+        const host = e.currentTarget, r = host.getBoundingClientRect();
+        const x = e.clientX - r.left, y = e.clientY - r.top;
+        const g = host.querySelector("[data-glow]");
+        if (g) { g.style.opacity = "1"; g.style.transform = "translate3d(" + x + "px," + y + "px,0)"; }
+        const l = host.querySelector("[data-glow-lift]");
+        if (l) {
+          const dx = (x / r.width - 0.5) * 20, dy = (y / r.height - 0.5) * 12;
+          l.style.transition = "transform .55s cubic-bezier(.22,1,.36,1)";
+          l.style.transform = "translate3d(" + dx.toFixed(2) + "px," + dy.toFixed(2) + "px,0)";
+        }
+      },
+      offGlow: (e) => {
+        const host = e.currentTarget;
+        const g = host.querySelector("[data-glow]"); if (g) g.style.opacity = "0";
+        const l = host.querySelector("[data-glow-lift]"); if (l) l.style.transform = "translate3d(0,0,0)";
+      },
+      questions: [
+        { n: "01", t: "What are you selling, and who is supposed to buy it?" },
+        { n: "02", t: "What does a good month look like, in numbers?" },
+        { n: "03", t: "Where does growth stall right now?" },
+        { n: "04", t: "What have you already tried, and what happened?" },
+        { n: "05", t: "Who owns marketing inside the company?" },
+        { n: "06", t: "What budget are you comfortable defending?" },
+        { n: "07", t: "What would make us the wrong people for this?" }
+      ],
+      navPillRef: this.navPillRef,
+      ctaPillRef: this.ctaPillRef,
+      openMenu: () => { clearTimeout(this._mt); this.setState({ menu: true }); },
+      closeMenu: () => { clearTimeout(this._mt); this._mt = setTimeout(() => this.setState({ menu: false }), 280); },
+      menuOpacity: this.state.menu ? 1 : 0,
+      menuVis: this.state.menu ? "visible" : "hidden",
+      menuShift: this.state.menu ? "translateY(0)" : "translateY(-10px)",
+      menuArrow: this.state.menu ? "rotate(180deg)" : "rotate(0deg)",
+      serviceLinks: SERVICES.map((sv, j) => ({
+        num: String(j + 1).padStart(2, "0"),
+        name: sv.title,
+        href: sv.slug + ".html",
+        color: j === i ? "#A855F7" : "rgba(255,255,255,.78)"
+      })),
+      num: String(i + 1).padStart(2, "0"),
+      title: s.title,
+      intro: s.intro,
+      heroCta: s.heroCta,
+      problem: s.problem,
+      problemBody: s.problemBody,
+      deliverables: s.deliverables.map((d, j) => ({ num: String(j + 1).padStart(2, "0"), title: d.title, body: d.body })),
+      midCta: s.midCta,
+      stages: s.steps.map((st, j) => {
+        const on = (this.state.stage || 0) === j;
+        return {
+          num: String(j + 1).padStart(2, "0"),
+          title: st.title, body: st.body, when: st.when,
+          bg: on ? "rgba(124,43,245,.13)" : "rgba(255,255,255,.03)",
+          barW: on ? "100%" : "12%",
+          whenColor: on ? "#A855F7" : "rgba(255,255,255,.45)",
+          dot: on ? "#7C2BF5" : "rgba(255,255,255,.18)",
+          numFill: on ? "#A855F7" : "transparent",
+          numStroke: on ? "rgba(168,85,247,.6)" : "rgba(255,255,255,.22)",
+          bodyOp: on ? 1 : 0.42,
+          bodyShift: on ? "translateY(0)" : "translateY(4px)",
+          hover: () => this.setState({ stage: j })
+        };
+      }),
+      stageNum: String((this.state.stage || 0) + 1).padStart(2, "0"),
+      stageWhen: (s.steps[this.state.stage || 0] || s.steps[0]).when,
+      cases: s.cases || [],
+      botLine: s.botLine,
+      botTags: s.botTags,
+      closeLine: s.closeLine,
+      others: SERVICES.filter((o, j) => j !== i).map(o => ({ name: o.title, href: o.slug + ".html" }))
+    };
+  }
+}
+</script>
+</body>
+</html>
