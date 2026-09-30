@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  @keyframes tgSvPulse { 0%,100%{opacity:.35;} 50%{opacity:1;} }
+</style>
+</helmet>
+<div data-screen-label="Survey popup">
+  <a href="#survey" aria-label="Scope your project" style="position:fixed; left:clamp(14px,1.6vw,26px); bottom:clamp(14px,1.6vw,26px); z-index:110; display:inline-flex; align-items:center; gap:10px; padding:13px 20px; border-radius:999px; background:rgba(12,12,12,.74); backdrop-filter:blur(18px) saturate(160%); -webkit-backdrop-filter:blur(18px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 24px 60px -30px rgba(0,0,0,.9), 0 0 34px -10px rgba(124,43,245,.6); color:#fff; font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; opacity:{{ pillOp }}; transform:{{ pillTr }}; pointer-events:{{ pillPe }}; transition:opacity .4s ease, transform .5s cubic-bezier(.22,1,.36,1), background .3s ease, border-color .3s ease;" style-hover="color:#fff; background:rgba(124,43,245,.32); border-color:rgba(168,85,247,.55);">
+    <span style="width:7px; height:7px; border-radius:50%; background:#A855F7; animation:tgSvPulse 2s ease infinite;"></span>
+    Scope your project
+  </a>
+
+  <div onClick="{{ close }}" style="position:fixed; inset:0; z-index:300; background:rgba(5,5,5,.58); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); opacity:{{ ovOp }}; visibility:{{ ovVis }}; transition:opacity .45s ease, visibility .45s;"></div>
+
+  <aside role="dialog" aria-modal="true" aria-label="Project survey" style="position:fixed; top:0; right:0; bottom:0; z-index:301; width:min(600px,100vw); display:flex; flex-direction:column; overflow:hidden; background:rgba(12,12,12,.86); backdrop-filter:blur(30px) saturate(170%); -webkit-backdrop-filter:blur(30px) saturate(170%); border-left:1px solid rgba(255,255,255,.12); box-shadow:-40px 0 120px -40px rgba(0,0,0,1), 0 0 120px -40px rgba(124,43,245,.55); color:#FAFAFA; font-family:Archivo, Helvetica, sans-serif; transform:{{ panelTr }}; visibility:{{ ovVis }}; transition:transform .65s cubic-bezier(.22,1,.36,1), visibility .65s;">
+    <div style="position:absolute; top:-260px; right:-220px; width:560px; height:560px; border-radius:50%; pointer-events:none; background:radial-gradient(circle, rgba(124,43,245,.32), rgba(124,43,245,0) 68%);"></div>
+
+    <div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:22px clamp(20px,2.4vw,32px) 0;">
+      <span style="display:inline-flex; align-items:center; gap:10px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:#A855F7;">
+        <span style="width:7px; height:7px; border-radius:50%; background:#7C2BF5; animation:tgSvPulse 2s ease infinite;"></span>
+        Scope your project
+      </span>
+      <button onClick="{{ close }}" aria-label="Close survey" style="width:40px; height:40px; border-radius:50%; cursor:pointer; background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.14); color:#fff; font-size:18px; line-height:1; transition:background .3s ease, border-color .3s ease;" style-hover="background:rgba(124,43,245,.3); border-color:rgba(168,85,247,.55);">×</button>
+    </div>
+
+    <div style="position:relative; display:flex; flex-direction:column; gap:10px; padding:20px clamp(20px,2.4vw,32px) 0;">
+      <div style="position:relative; height:3px; border-radius:2px; background:rgba(255,255,255,.1); overflow:hidden;">
+        <span style="position:absolute; inset:0 auto 0 0; width:{{ progW }}; background:linear-gradient(90deg,#7C2BF5,#A855F7); border-radius:2px; transition:width .6s cubic-bezier(.22,1,.36,1);"></span>
+      </div>
+      <div style="display:flex; justify-content:space-between; gap:12px; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.42);">
+        <span>{{ topic }}</span>
+        <span>{{ stepLabel }}</span>
+      </div>
+    </div>
+
+    <div style="position:relative; flex:1; min-height:0; overflow:hidden;">
+      <div style="display:flex; height:100%; transform:{{ trackTr }}; transition:transform .6s cubic-bezier(.22,1,.36,1); will-change:transform;">
+        <sc-for list="{{ slides }}" as="q" hint-placeholder-count="1">
+          <div style="flex:0 0 100%; min-width:0; height:100%; overflow-y:auto; padding:clamp(26px,4vh,44px) clamp(20px,2.4vw,32px) 24px; display:flex; flex-direction:column; gap:clamp(16px,2.4vh,24px); opacity:{{ q.op }}; transition:opacity .45s ease;">
+            <h2 style="margin:0; font-size:clamp(26px,3vw,42px); font-weight:900; letter-spacing:-0.045em; line-height:.98; text-transform:uppercase; text-wrap:balance;">{{ q.t }}</h2>
+            <p style="margin:0; max-width:46ch; font-size:15px; line-height:1.6; color:rgba(255,255,255,.55); text-wrap:pretty;">{{ q.sub }}</p>
+            <sc-if value="{{ q.isChoice }}" hint-placeholder-val="{{ true }}">
+              <div style="display:flex; flex-direction:column; gap:8px;">
+                <sc-for list="{{ q.opts }}" as="o" hint-placeholder-count="4">
+                  <button onClick="{{ o.pick }}" style="display:grid; grid-template-columns:30px 1fr auto; align-items:center; gap:14px; width:100%; padding:15px 18px; border-radius:14px; cursor:pointer; text-align:left; font-family:Archivo, sans-serif; font-size:16px; font-weight:600; letter-spacing:-0.015em; color:#fff; background:{{ o.bg }}; border:1px solid {{ o.bd }}; transition:background .25s ease, border-color .25s ease, transform .3s cubic-bezier(.22,1,.36,1);" style-hover="border-color:rgba(168,85,247,.55); transform:translateX(4px);">
+                    <span style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,.18); font-family:'JetBrains Mono', monospace; font-size:11px; color:{{ o.keyFg }}; background:{{ o.keyBg }};">{{ o.key }}</span>
+                    <span>{{ o.label }}</span>
+                    <span style="font-size:14px; color:#A855F7; opacity:{{ o.markOp }}; transition:opacity .25s ease;">●</span>
+                  </button>
+                </sc-for>
+              </div>
+            </sc-if>
+            <sc-if value="{{ q.isText }}" hint-placeholder-val="{{ false }}">
+              <textarea value="{{ note }}" onChange="{{ setNote }}" rows="5" placeholder="{{ q.placeholder }}" style="width:100%; padding:16px 18px; border-radius:14px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); color:#fff; font-family:Archivo, sans-serif; font-size:16px; line-height:1.55; resize:vertical; outline:none;" style-focus="border-color:rgba(168,85,247,.7); background:rgba(124,43,245,.08);"></textarea>
+            </sc-if>
+            <sc-if value="{{ q.isDone }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; flex-direction:column; gap:8px; border-top:1px solid rgba(255,255,255,.1);">
+                <sc-for list="{{ summary }}" as="s" hint-placeholder-count="6">
+                  <div style="display:grid; grid-template-columns:minmax(0,120px) minmax(0,1fr); gap:16px; padding:11px 2px; border-bottom:1px solid rgba(255,255,255,.08);">
+                    <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.38);">{{ s.k }}</span>
+                    <span style="font-size:14.5px; line-height:1.5; color:rgba(255,255,255,.82);">{{ s.v }}</span>
+                  </div>
+                </sc-for>
+              </div>
+            </sc-if>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+
+    <div style="position:relative; display:flex; align-items:center; justify-content:space-between; gap:14px; padding:18px clamp(20px,2.4vw,32px) 22px; border-top:1px solid rgba(255,255,255,.1); background:rgba(8,8,8,.5);">
+      <button onClick="{{ back }}" style="padding:13px 22px; border-radius:999px; cursor:pointer; background:transparent; border:1px solid rgba(255,255,255,.14); color:rgba(255,255,255,.7); font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; opacity:{{ backOp }}; pointer-events:{{ backPe }}; transition:opacity .3s ease, color .3s ease, border-color .3s ease;" style-hover="color:#fff; border-color:rgba(168,85,247,.55);">← Back</button>
+      <div style="display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.32);">{{ hint }}</span>
+        <button onClick="{{ next }}" style="display:inline-flex; align-items:center; gap:12px; padding:13px 13px 13px 24px; border-radius:999px; cursor:pointer; background:#7C2BF5; border:none; color:#fff; font-family:Archivo, sans-serif; font-size:15px; font-weight:700; letter-spacing:-0.01em; opacity:{{ nextOp }}; transition:opacity .3s ease, transform .3s ease, box-shadow .3s ease;" style-hover="transform:translateY(-2px); box-shadow:0 20px 50px -20px rgba(124,43,245,.9);">
+          {{ nextLabel }}
+          <span style="display:inline-flex; align-items:center; justify-content:center; width:30px; height:30px; border-radius:50%; background:rgba(255,255,255,.2); font-size:13px;">{{ nextIcon }}</span>
+        </button>
+      </div>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900}}">
+const SV_WHO = ["A brand or in-house team", "An agency looking for a partner", "A founder or early-stage startup", "Something else"];
+const SV_NEED = ["Performance marketing", "AI automation & chatbots", "GEO / AEO / SEO", "Content production & PR", "UX & website design", "Engineering & DevOps"];
+const SV_GOAL_BRAND = ["More qualified leads", "Lower cost per acquisition", "Better return on ad spend", "Visibility in AI search", "A launch that lands", "Tracking I can trust"];
+const SV_GOAL_AGENCY = ["Services we don't offer in-house", "Overflow capacity for current clients", "Lower delivery costs", "A specialist for one client", "A long-term white-label partner"];
+const SV_MODEL = ["Paid on performance", "A fixed-scope project", "Month-to-month", "White-label under our brand", "Not sure yet, advise me"];
+const SV_BUDGET = ["Under $5k", "$5k – $15k", "$15k – $50k", "$50k+", "Not sure yet"];
+const SV_TIME = ["As soon as possible", "This month", "This quarter", "Just exploring"];
+
+class Component extends DCLogic {
+  constructor(p) {
+    super(p);
+    this.state = { open: false, step: 0, a: { need: [] }, scrolled: false, onContact: false };
+  }
+  questions() {
+    const ag = this.state.a.who === SV_WHO[1];
+    return [
+      { k: "who", topic: "About you", type: "single", t: "First, who's asking?", sub: "We work with brands directly and with agencies behind the scenes. Your answer shapes the next few questions.", opts: SV_WHO },
+      { k: "need", topic: "What you need", type: "multi", t: ag ? "Which services do your clients need?" : "What do you need help with?", sub: "Pick as many as apply.", opts: SV_NEED },
+      { k: "goal", topic: "The outcome", type: "single", t: ag ? "What do you need most from a partner?" : "What's the one outcome that matters most?", sub: ag ? "Most agencies come to us for one of these." : "If this improved, you'd call the quarter a win.", opts: ag ? SV_GOAL_AGENCY : SV_GOAL_BRAND },
+      { k: "model", topic: "Working model", type: "single", t: "How would you like to work together?", sub: "We don't need a retainer. Most of our work is paid on performance or scoped as a project.", opts: SV_MODEL },
+      { k: "budget", topic: "Budget", type: "single", t: ag ? "What monthly budget sits behind this client work?" : "Roughly what's your monthly marketing budget?", sub: "A rough range is enough. It tells us what's realistic, not what to charge.", opts: SV_BUDGET },
+      { k: "timeline", topic: "Timing", type: "single", t: "When do you want to start?", sub: "No wrong answer. Exploring is fine.", opts: SV_TIME },
+      { k: "note", topic: "Context", type: "text", t: "Last one. Where's growth stuck right now?", sub: "A sentence or two is plenty. Optional, but it makes our first reply much more useful.", placeholder: ag ? "e.g. We've sold paid social to two new clients and need a senior team to run it under our name." : "e.g. Ad spend is up, pipeline is flat, and nobody trusts the tracking." }
+    ];
+  }
+  componentDidMount() {
+    this._click = (e) => {
+      const t = e.target && e.target.closest ? e.target.closest('a[href="#survey"],[data-survey]') : null;
+      if (t) { e.preventDefault(); this.openSurvey(); }
+    };
+    this._key = (e) => {
+      if (!this.state.open) return;
+      if (e.key === "Escape") { this.closeSurvey(); return; }
+      if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); this.goNext(); }
+    };
+    this._scroll = () => {
+      const s = (window.scrollY || 0) > 480;
+      if (s !== this.state.scrolled) this.setState({ scrolled: s });
+    };
+    this._evt = () => this.openSurvey();
+    document.addEventListener("click", this._click, true);
+    window.addEventListener("keydown", this._key);
+    window.addEventListener("scroll", this._scroll, { passive: true });
+    window.addEventListener("tg:survey", this._evt);
+    let onContact = false;
+    try { onContact = /contact/i.test(decodeURIComponent(window.location.pathname)); } catch (e) {}
+    this.setState({ onContact });
+    if (window.location.hash === "#survey") this.openSurvey();
+    this._scroll();
+  }
+  componentWillUnmount() {
+    document.removeEventListener("click", this._click, true);
+    window.removeEventListener("keydown", this._key);
+    window.removeEventListener("scroll", this._scroll);
+    window.removeEventListener("tg:survey", this._evt);
+    clearTimeout(this._adv);
+    document.documentElement.style.overflow = "";
+  }
+  openSurvey() {
+    this.setState({ open: true });
+    document.documentElement.style.overflow = "hidden";
+  }
+  closeSurvey() {
+    this.setState({ open: false });
+    document.documentElement.style.overflow = "";
+    if (window.location.hash === "#survey") {
+      try { history.replaceState(null, "", window.location.pathname + window.location.search); } catch (e) {}
+    }
+  }
+  canNext() {
+    const Q = this.questions(), q = Q[this.state.step];
+    if (!q) return true;
+    const v = this.state.a[q.k];
+    if (q.type === "multi") return !!(v && v.length);
+    if (q.type === "single") return !!v;
+    return true;
+  }
+  goNext() {
+    const n = this.questions().length;
+    if (this.state.step >= n) { this.finish(); return; }
+    if (!this.canNext()) return;
+    this.setState({ step: this.state.step + 1 });
+  }
+  finish() {
+    try { localStorage.setItem("tgSurvey", JSON.stringify(Object.assign({}, this.state.a, { t: Date.now() }))); } catch (e) {}
+    document.documentElement.style.overflow = "";
+    window.location.href = "/contact?from=survey";
+  }
+  renderVals() {
+    const st = this.state, a = st.a, Q = this.questions(), n = Q.length;
+    const step = Math.min(st.step, n);
+    const keys = "ABCDEFGH";
+    const slides = Q.map((q, j) => {
+      const opts = (q.opts || []).map((label, i) => {
+        const on = q.type === "multi" ? (a[q.k] || []).indexOf(label) > -1 : a[q.k] === label;
+        return {
+          key: keys[i], label,
+          bg: on ? "rgba(124,43,245,.26)" : "rgba(255,255,255,.035)",
+          bd: on ? "rgba(168,85,247,.7)" : "rgba(255,255,255,.12)",
+          keyBg: on ? "#7C2BF5" : "transparent",
+          keyFg: on ? "#fff" : "rgba(255,255,255,.55)",
+          markOp: on ? 1 : 0,
+          pick: () => {
+            if (q.type === "multi") {
+              const cur = a[q.k] || [];
+              const nx = cur.indexOf(label) > -1 ? cur.filter(x => x !== label) : cur.concat([label]);
+              this.setState({ a: Object.assign({}, a, { [q.k]: nx }) });
+            } else {
+              const upd = Object.assign({}, a, { [q.k]: label });
+              if (q.k === "who" && label !== a.who) upd.goal = undefined;
+              this.setState({ a: upd });
+              clearTimeout(this._adv);
+              this._adv = setTimeout(() => { if (this.state.step === j) this.setState({ step: j + 1 }); }, 340);
+            }
+          }
+        };
+      });
+      return { t: q.t, sub: q.sub, placeholder: q.placeholder || "", isChoice: q.type !== "text", isText: q.type === "text", isDone: false, opts, op: j === step ? 1 : 0 };
+    });
+    slides.push({ t: "That's everything we need.", sub: "Your answers come with you to the contact page. Add your name and email there, and a senior strategist replies within one business day with a first opinion.", placeholder: "", isChoice: false, isText: false, isDone: true, opts: [], op: step === n ? 1 : 0 });
+    const summary = [
+      { k: "You are", v: a.who }, { k: "Services", v: (a.need || []).join(", ") }, { k: "Outcome", v: a.goal },
+      { k: "Model", v: a.model }, { k: "Budget", v: a.budget }, { k: "Start", v: a.timeline }, { k: "Context", v: a.note }
+    ].filter(x => x.v && String(x.v).trim());
+    const done = step === n;
+    const ok = this.canNext();
+    return {
+      slides, summary,
+      note: a.note || "",
+      setNote: (e) => this.setState({ a: Object.assign({}, a, { note: e.target.value }) }),
+      trackTr: "translate3d(" + (-step * 100) + "%,0,0)",
+      progW: Math.round((step / n) * 100) + "%",
+      topic: done ? "All done" : Q[step].topic,
+      stepLabel: done ? "Complete" : String(step + 1).padStart(2, "0") + " / " + String(n).padStart(2, "0"),
+      nextLabel: done ? "Continue to contact" : (step === n - 1 ? "Finish" : "Next"),
+      nextIcon: done ? "↗" : "→",
+      nextOp: ok ? 1 : 0.4,
+      hint: done ? "" : (Q[step].type === "multi" ? "Pick any, then Enter ↵" : "Enter ↵"),
+      backOp: step > 0 ? 1 : 0,
+      backPe: step > 0 ? "auto" : "none",
+      back: () => this.setState({ step: Math.max(0, step - 1) }),
+      next: () => this.goNext(),
+      close: () => this.closeSurvey(),
+      ovOp: st.open ? 1 : 0,
+      ovVis: st.open ? "visible" : "hidden",
+      panelTr: st.open ? "translate3d(0,0,0)" : "translate3d(104%,0,0)",
+      pillOp: st.scrolled && !st.open && !st.onContact ? 1 : 0,
+      pillTr: st.scrolled && !st.open && !st.onContact ? "translate3d(0,0,0)" : "translate3d(0,14px,0)",
+      pillPe: st.scrolled && !st.open && !st.onContact ? "auto" : "none"
+    };
+  }
+}
+</script>
+</body>
+</html>

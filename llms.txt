@@ -1,0 +1,30 @@
+# Taghash Media
+
+> Taghash Media is a performance-first digital growth studio. Services: performance marketing, AI automation and chatbots, generative and search optimization (GEO, AEO, SEO), AI content production and PR, UX and website design, and engineering and DevOps. Human-led and AI-backed, paid on results rather than retainers, and available white-label for agencies.
+
+Key facts:
+- Market: United States. Clients are growth-stage and established brands, plus marketing, creative and development agencies.
+- Pricing: performance-linked or fixed-scope engagements; ongoing work runs month to month. No retainer lock-in.
+- AI: human-led, AI-backed. Senior people make strategy, creative and client decisions; AI handles research, drafts, variations, monitoring and reporting. In-house agents: Ava (chat and voice), Scrappy (competitor monitoring), Julio (delivery tracking), Zen (reporting).
+- Agencies: every service is available white-label, for capability gaps or overflow capacity, delivered under the agency's brand.
+- Leadership: Nikhil (Founder & CEO), Kartik (Co-founder & CMO). Studio in Bengaluru, India, with people in Dubai and Toronto.
+- Selected results: 6.4x average blended ROAS; $4M+ client revenue; Tarzanway +312% booked trips; Sacred Chants 5.8x ROAS; BullzEye CAC down 38%; Unbroken Spirit 41M organic views.
+- Contact: business@taghashmedia.com · https://taghashmedia.com/contact
+
+## Services
+- [Performance Marketing](https://taghashmedia.com/performance-marketing.md): Paid media that's judged on revenue, not reach. We buy, test and cut creative weekly across Meta, Google and LinkedIn, and report the number your CFO cares about.
+- [Chatbots, Automations & Workflow Builds](https://taghashmedia.com/automation.md): AI agents and automations that do real work: answering, qualifying, routing, following up, updating the CRM. Staff, not gimmicks.
+- [Generative & Search Optimization](https://taghashmedia.com/geo-seo.md): GEO, AEO and classic SEO. Being found by Google still matters. Being quoted by ChatGPT, Perplexity and AI Overviews increasingly matters more.
+- [AI Content Production & PR](https://taghashmedia.com/content-pr.md): Volume without slop. Performance creative, founder-led content and earned coverage, produced with AI where it helps and humans where it counts.
+- [UX & Website Design](https://taghashmedia.com/ux-web.md): Websites designed around the decision a visitor is trying to make. Researched, prototyped, and built to convert without insulting anyone's intelligence.
+- [Engineering & DevOps](https://taghashmedia.com/engineering.md): The build and everything that keeps it standing. Next.js, Webflow, WordPress, headless commerce, integrations and the infrastructure underneath.
+
+## Company
+- [Home](https://taghashmedia.com/index.md): Positioning, what we bring, results, FAQ and founders
+- [Approach](https://taghashmedia.com/approach.md): How we work and how we get paid (performance, project, white-label, month to month)
+- [About](https://taghashmedia.com/about.md): Leadership, team, principles and locations
+- [Work](https://taghashmedia.com/work.md): Client results by service
+- [Contact](https://taghashmedia.com/contact.md): How to reach us and what happens next
+
+## Optional
+- [Full site content](https://taghashmedia.com/llms-full.txt): Every page in one file

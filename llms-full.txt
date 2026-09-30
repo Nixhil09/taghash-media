@@ -1,0 +1,830 @@
+# Taghash Media: full site content
+
+> Taghash Media is a performance-first digital growth studio. Services: performance marketing, AI automation and chatbots, generative and search optimization (GEO, AEO, SEO), AI content production and PR, UX and website design, and engineering and DevOps. Human-led and AI-backed, paid on results rather than retainers, and available white-label for agencies.
+
+# Taghash Media: a performance-first growth studio
+
+Taghash Media is a performance-first digital growth studio. Services: performance marketing, AI automation and chatbots, generative and search optimization (GEO, AEO, SEO), AI content production and PR, UX and website design, and engineering and DevOps. Human-led and AI-backed, paid on results rather than retainers, and available white-label for agencies.
+
+## What we bring
+
+### Performance first
+Paid on results, not retainers. Most engagements are tied to an agreed outcome such as qualified pipeline, cost per acquisition (CAC) or return on ad spend (ROAS), with no annual lock-in.
+
+### Human first, AI-backed
+Senior people own strategy, creative judgment and every client conversation. AI handles research, first drafts, creative variations, monitoring and reporting.
+
+### Direct or behind the scenes
+Brands hire Taghash Media directly. Agencies bring us in white-label to add services they don't offer in-house or to take on overflow at a lower cost than hiring.
+
+## Services
+
+- [Performance Marketing](https://taghashmedia.com/performance-marketing): Paid media that's judged on revenue, not reach. We buy, test and cut creative weekly across Meta, Google and LinkedIn, and report the number your CFO cares about.
+- [Chatbots, Automations & Workflow Builds](https://taghashmedia.com/automation): AI agents and automations that do real work: answering, qualifying, routing, following up, updating the CRM. Staff, not gimmicks.
+- [Generative & Search Optimization](https://taghashmedia.com/geo-seo): GEO, AEO and classic SEO. Being found by Google still matters. Being quoted by ChatGPT, Perplexity and AI Overviews increasingly matters more.
+- [AI Content Production & PR](https://taghashmedia.com/content-pr): Volume without slop. Performance creative, founder-led content and earned coverage, produced with AI where it helps and humans where it counts.
+- [UX & Website Design](https://taghashmedia.com/ux-web): Websites designed around the decision a visitor is trying to make. Researched, prototyped, and built to convert without insulting anyone's intelligence.
+- [Engineering & DevOps](https://taghashmedia.com/engineering): The build and everything that keeps it standing. Next.js, Webflow, WordPress, headless commerce, integrations and the infrastructure underneath.
+
+## In-house AI agents
+
+### Ava (chat and voice agent)
+Answers leads on the phone and in chat, qualifies them and books them in, around the clock.
+
+### Scrappy (data and competitor monitoring)
+Watches competitor ads, pricing and rankings continuously.
+
+### Julio (delivery tracking)
+Flags slipping timelines and blocked tasks across live projects.
+
+### Zen (KPIs and reporting)
+Combines ad platforms, GA4, CRM and call data into one blended view.
+
+## For agencies
+
+### White-label delivery
+We work under your brand, in your tools, to your standards. Your client never needs to know we exist.
+
+### Overflow capacity
+Won more work than your team can carry? We take on the overflow at a lower cost than hiring, and scale back down when you do.
+
+### Missing capabilities
+Offer GEO, AI automation or engineering without building a new department. You keep the relationship and the margin.
+
+## Selected results
+
+- Tarzanway (adventure travel): 312% more booked trips
+- Unbroken Spirit (film launch): 41M organic views
+- Sacred Chants (music): 5.8x ROAS
+- The Motoring Club (automotive): 2.4k members onboarded
+- BullzEye Golf (golf tech): CAC down 38%
+- Average blended ROAS across accounts: 6.4x
+- $4M+ in client revenue
+
+## Frequently asked questions
+
+### What is Taghash Media?
+Taghash Media is a performance-first digital growth agency. We run performance marketing, AI automation, generative and search optimization (GEO and SEO), content and PR, UX and website design, and engineering for brands, and deliver the same services white-label for agencies.
+
+### Do you work with agencies?
+Yes. A large share of our work is agency-to-agency. Agencies bring us in to deliver services they don't offer in-house, or to take on overflow at a lower cost than hiring. We can work under your brand, stay off client calls, or join them as part of your team.
+
+### Do you require a monthly retainer?
+No. We prefer performance-based or fixed-scope engagements tied to an agreed outcome, such as qualified pipeline, cost per acquisition or return on ad spend. When work is ongoing, it runs month to month with no annual lock-in.
+
+### How do you use AI?
+AI handles research, first drafts, creative variations, monitoring and reporting. Strategy, creative judgment and every client-facing decision stay with senior people, and nothing ships without a human sign-off.
+
+### Who do you work with?
+Growth-stage and established brands, plus marketing, creative and development agencies, most of them in North America. Past work spans travel, film and entertainment, music, automotive and sports equipment.
+
+### What is GEO?
+Generative engine optimization is the work of getting a brand mentioned and cited in AI-generated answers from tools like ChatGPT, Perplexity, Gemini and Google AI Overviews. We run it alongside traditional SEO.
+
+### How quickly can we start?
+Most engagements begin with a one-week audit. The first changes usually ship in weeks two to three.
+
+### Where is your team based?
+Our studio is in Bengaluru, with people in Dubai and Toronto. Most client calls happen on Eastern and Pacific time.
+
+## Founders
+
+### Nikhil, Founder & CEO
+Sits in every account review and owns strategy, media and the P&L.
+
+### Kartik, Co-founder & CMO
+Runs positioning, creative and content.
+
+## Contact
+
+Email business@taghashmedia.com or request a call at https://taghashmedia.com/contact. A senior strategist replies within one business day.
+
+URL: https://taghashmedia.com/
+
+---
+
+# Services
+
+Taghash Media offers six growth services. Every service is also available white-label for agencies. Take one service or several; either way, the work is judged on revenue, not activity.
+
+## Performance Marketing
+
+Paid media that's judged on revenue, not reach. We buy, test and cut creative weekly across Meta, Google and LinkedIn, and report the number your CFO cares about.
+
+- Full-funnel media buying: Meta, Google, YouTube, LinkedIn, planned as one budget, not five silos.
+- Creative testing system: A weekly cadence of new angles, hooks and formats, with a kill rule so losers die fast.
+- Landing page CRO: The page the ad promised. Built, tested and iterated alongside the campaign.
+- Honest attribution: Platform data reconciled against CRM and call data. One blended number, defensible in a board meeting.
+- Lifecycle & retention: Email, SMS and remarketing so the leads you paid for don't quietly go cold.
+- Weekly reporting: What we spent, what it returned, what changes next week. Fifteen minutes, no theatre.
+
+Details: https://taghashmedia.com/performance-marketing
+
+## Chatbots, Automations & Workflow Builds
+
+AI agents and automations that do real work: answering, qualifying, routing, following up, updating the CRM. Staff, not gimmicks.
+
+- AI chat & voice agents: Answer, qualify and book, on the phone and on the site, in your tone of voice.
+- CRM automation: Leads routed, enriched, scored and assigned without anyone touching a spreadsheet.
+- Follow-up sequences: Every enquiry chased properly, on schedule, until it converts or clearly doesn't.
+- Internal ops tooling: The small ugly tools that remove an hour a day from someone's job.
+- Integrations: Zapier, Make, or custom. Whichever survives contact with your stack.
+- Monitoring: Alerts when an automation fails, because silent failure is worse than no automation.
+
+Details: https://taghashmedia.com/automation
+
+## Generative & Search Optimization
+
+GEO, AEO and classic SEO. Being found by Google still matters. Being quoted by ChatGPT, Perplexity and AI Overviews increasingly matters more.
+
+- Generative visibility (GEO): Getting your brand into the answers AI assistants give about your category.
+- Answer engine content (AEO): Content structured to be extracted, cited and quoted, not just crawled.
+- Technical SEO: Speed, crawlability, schema, entities. The unglamorous foundation.
+- Local SEO: Map pack, reviews, location pages. Where physical businesses actually win.
+- Content strategy: Built around real search demand and the questions buyers ask before they're ready.
+- Tracking that includes AI: Monitoring how you appear across assistants, not just rank positions.
+
+Details: https://taghashmedia.com/geo-seo
+
+## AI Content Production & PR
+
+Volume without slop. Performance creative, founder-led content and earned coverage, produced with AI where it helps and humans where it counts.
+
+- Performance creative: Ad-ready video, static and motion, produced against a tested concept, at testing volume.
+- Founder-led content: Your point of view, written and filmed so it sounds like you on a good day.
+- Editorial & ghostwriting: Long-form that earns links, citations and the respect of your buyers.
+- Digital PR: Stories placed where your category reads, with a hook worth printing.
+- UGC & creator work: Sourced, briefed and managed. The format that still outperforms polish.
+- Brand guardrails: Prompts, tone rules and review gates so scale doesn't dilute the brand.
+
+Details: https://taghashmedia.com/content-pr
+
+## UX & Website Design
+
+Websites designed around the decision a visitor is trying to make. Researched, prototyped, and built to convert without insulting anyone's intelligence.
+
+- Research & flows: What visitors need to know, in what order, before they'll act.
+- Conversion-first design: Layouts built around one primary action per screen.
+- Design systems: Components your team can extend without calling us every fortnight.
+- Prototyping: Clickable and testable before anybody writes production code.
+- Accessibility: WCAG AA as standard. It's a bigger market and it's the right thing.
+- Handoff: Documented, tokenised, and understood by whoever builds it.
+
+Details: https://taghashmedia.com/ux-web
+
+## Engineering & DevOps
+
+The build and everything that keeps it standing. Next.js, Webflow, WordPress, headless commerce, integrations and the infrastructure underneath.
+
+- Web builds: Next.js, Webflow or WordPress, chosen for who maintains it, not for what's fashionable.
+- Headless commerce: Storefronts that stay fast as the catalogue grows.
+- Integrations: CRM, ERP, payments, telephony. The connections that make the stack one system.
+- Infrastructure & CI/CD: Deploy pipelines, staging, rollbacks. Shipping should be boring.
+- Performance budgets: Speed treated as a requirement, enforced automatically, not a launch-week scramble.
+- Maintenance: Monitoring, patching and an actual human on the other end.
+
+Details: https://taghashmedia.com/engineering
+
+## For agencies
+
+### White-label delivery
+We work under your brand, in your tools, to your standards. Your client never needs to know we exist.
+
+### Overflow capacity
+Won more work than your team can carry? We take on the overflow at a lower cost than hiring, and scale back down when you do.
+
+### Missing capabilities
+Offer GEO, AI automation or engineering without building a new department. You keep the relationship and the margin.
+
+URL: https://taghashmedia.com/services
+
+---
+
+# Performance Marketing
+
+Paid media that's judged on revenue, not reach. We buy, test and cut creative weekly across Meta, Google and LinkedIn, and report the number your CFO cares about.
+
+## The problem
+
+Your spend went up. Your pipeline didn't. Most accounts we inherit aren't broken because the targeting is wrong. They're broken because nobody is producing enough new creative to keep the algorithm fed, the landing page contradicts the ad, and success is measured on a platform dashboard that has every reason to flatter itself.
+
+## What's included
+
+### Full-funnel media buying
+Meta, Google, YouTube, LinkedIn, planned as one budget, not five silos.
+
+### Creative testing system
+A weekly cadence of new angles, hooks and formats, with a kill rule so losers die fast.
+
+### Landing page CRO
+The page the ad promised. Built, tested and iterated alongside the campaign.
+
+### Honest attribution
+Platform data reconciled against CRM and call data. One blended number, defensible in a board meeting.
+
+### Lifecycle & retention
+Email, SMS and remarketing so the leads you paid for don't quietly go cold.
+
+### Weekly reporting
+What we spent, what it returned, what changes next week. Fifteen minutes, no theatre.
+
+## How it works
+
+### 1. Audit (Week 1)
+We go through the account, the creative, the landing pages and the tracking. You get the findings whether or not you hire us.
+
+### 2. Rebuild (Weeks 2–3)
+Structure, tracking, and the first wave of creative. Usually fewer campaigns than you had, doing more.
+
+### 3. Scale (Month 2+)
+Weekly testing cycles, budget shifted toward what compounds, spend increased only where the maths holds.
+
+### 4. Report (Ongoing)
+You get one blended view every month. We meet, argue about it, adjust.
+
+## Who it's for
+
+### For brands
+Brands spending $5k or more a month on paid media who want every dollar tied to pipeline or revenue, not platform-reported conversions.
+
+### For agencies (white-label)
+Agencies that have sold paid media but need a senior team to run it, white-labeled under your name and reported in your template.
+
+## How we use AI
+
+AI generates creative variations, flags spend anomalies and drafts the weekly report. A senior media buyer decides what runs, what scales and what gets cut.
+
+## Results
+
+- Sacred Chants (5.8x ROAS): Paid social and search rebuilt across four markets and three languages.
+- BullzEye (CAC −38%): Cost per acquisition down 38% in a quarter without cutting volume.
+- Tarzanway (+312%): Booked trips up 312% across two seasons on the same media budget.
+
+## Frequently asked questions
+
+### Do you charge a percentage of ad spend?
+Not by default. We prefer a fixed fee tied to agreed outcomes such as CAC or ROAS, so our incentive is efficiency, not spending more.
+
+### Which ad platforms do you manage?
+Meta (Facebook and Instagram), Google Ads including YouTube and Performance Max, and LinkedIn, planned and reported as one budget.
+
+### How soon will we see results?
+Most accounts show clear movement within 30 to 60 days of the rebuild. The week-one audit tells you what to expect before you commit.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/performance-marketing
+
+---
+
+# Chatbots, Automations & Workflow Builds
+
+AI agents and automations that do real work: answering, qualifying, routing, following up, updating the CRM. Staff, not gimmicks.
+
+## The problem
+
+Your team is doing work a machine should have finished at 2am. Enquiries sit in an inbox overnight. Someone re-types the same data into three systems. Follow-ups happen when a human remembers. None of this is a people problem. It's an absence of plumbing, and it's costing you deals you already paid to generate.
+
+## What's included
+
+### AI chat & voice agents
+Answer, qualify and book, on the phone and on the site, in your tone of voice.
+
+### CRM automation
+Leads routed, enriched, scored and assigned without anyone touching a spreadsheet.
+
+### Follow-up sequences
+Every enquiry chased properly, on schedule, until it converts or clearly doesn't.
+
+### Internal ops tooling
+The small ugly tools that remove an hour a day from someone's job.
+
+### Integrations
+Zapier, Make, or custom. Whichever survives contact with your stack.
+
+### Monitoring
+Alerts when an automation fails, because silent failure is worse than no automation.
+
+## How it works
+
+### 1. Map (Week 1)
+We sit with your team and trace what actually happens, not what the SOP says happens.
+
+### 2. Prototype (Weeks 2–3)
+One workflow built end to end, in production, small enough to judge honestly.
+
+### 3. Roll out (Month 2)
+The rest, in priority order, each with a fallback path to a human.
+
+### 4. Maintain (Ongoing)
+Ongoing monitoring and iteration. Automations rot if nobody owns them.
+
+## Who it's for
+
+### For brands
+Brands losing leads to slow replies, manual data entry, or follow-ups that depend on someone remembering.
+
+### For agencies (white-label)
+Agencies that want to sell AI agents and automation to clients without building an engineering team to deliver them.
+
+## How we use AI
+
+The agents run on current AI models, but every build has a human fallback and alerts when something breaks. We design for the day it fails, not just the demo.
+
+## Results
+
+- The Motoring Club (2.4k members): Members onboarded end to end without a single manual email.
+- BullzEye (15s replies): Every enquiry answered in under fifteen seconds, day or night.
+- Tarzanway (0 lost leads): Enquiries routed, chased and logged before anyone opened a laptop.
+
+## Frequently asked questions
+
+### What can an AI agent handle for us?
+Answering inbound calls and chats, qualifying leads, booking meetings, updating the CRM and chasing follow-ups. Anything sensitive routes to a person.
+
+### Which tools do you build with?
+Zapier, Make, n8n or custom code, depending on what your team can maintain. We integrate with HubSpot, Salesforce and most common CRMs.
+
+### What happens when an automation breaks?
+You get an alert, the workflow falls back to a human, and we fix it. Monitoring is part of every build.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/automation
+
+---
+
+# Generative & Search Optimization
+
+GEO, AEO and classic SEO. Being found by Google still matters. Being quoted by ChatGPT, Perplexity and AI Overviews increasingly matters more.
+
+## The problem
+
+Someone asked an AI for a recommendation in your category. It didn't say your name. Search is splitting in two. Traditional rankings still drive volume, but a growing share of buyers now get one synthesised answer with two or three brands in it. Being on page one is no longer the same thing as being in the answer, and most sites are structured for the first job only.
+
+## What's included
+
+### Generative visibility (GEO)
+Getting your brand into the answers AI assistants give about your category.
+
+### Answer engine content (AEO)
+Content structured to be extracted, cited and quoted, not just crawled.
+
+### Technical SEO
+Speed, crawlability, schema, entities. The unglamorous foundation.
+
+### Local SEO
+Map pack, reviews, location pages. Where physical businesses actually win.
+
+### Content strategy
+Built around real search demand and the questions buyers ask before they're ready.
+
+### Tracking that includes AI
+Monitoring how you appear across assistants, not just rank positions.
+
+## How it works
+
+### 1. Baseline (Week 1–2)
+Where you rank, where you're cited, where competitors are showing up instead of you.
+
+### 2. Fix the base (Month 1)
+Technical issues, schema, entity clarity. Nothing clever works on a broken foundation.
+
+### 3. Publish (Month 2+)
+A content programme aimed at both crawlers and answer engines.
+
+### 4. Monitor (Ongoing)
+Rankings and AI mentions tracked continuously, with movement flagged the week it happens.
+
+## Who it's for
+
+### For brands
+Brands that rank on Google but don't appear when buyers ask ChatGPT, Perplexity or Google AI Overviews for a recommendation.
+
+### For agencies (white-label)
+SEO and content agencies whose clients now ask about AI visibility, and who want a specialist team to deliver GEO under their brand.
+
+## How we use AI
+
+We use AI to test how assistants describe you across hundreds of buyer prompts. Deciding what to publish, fix and prioritize stays with a senior strategist.
+
+## Results
+
+- Sacred Chants (90 days): Cited by AI assistants across its category inside three months.
+- Tarzanway (Organic first): Search became the cheapest booking channel in the account.
+- BullzEye (Map pack): Local visibility rebuilt around entities, schema and reviews.
+
+## Frequently asked questions
+
+### What is GEO?
+Generative engine optimization is the work of getting your brand mentioned and cited in AI-generated answers from tools like ChatGPT, Perplexity, Gemini and Google AI Overviews.
+
+### Is GEO different from SEO?
+They overlap. SEO earns rankings; GEO earns citations. Both depend on clear entities, structured content and technical health, so we run them together.
+
+### How do you measure AI visibility?
+We track how often and how accurately AI assistants mention you for a fixed set of buyer prompts, alongside rankings and organic traffic.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/geo-seo
+
+---
+
+# AI Content Production & PR
+
+Volume without slop. Performance creative, founder-led content and earned coverage, produced with AI where it helps and humans where it counts.
+
+## The problem
+
+You need forty assets a month and you have taste. Paid social eats creative faster than any team can hand-make it, so most brands pick a side: volume that looks generic, or craft that arrives too slowly to test. AI collapses the trade-off only if someone is holding the standard. Otherwise you've automated the production of things nobody wants to watch.
+
+## What's included
+
+### Performance creative
+Ad-ready video, static and motion, produced against a tested concept, at testing volume.
+
+### Founder-led content
+Your point of view, written and filmed so it sounds like you on a good day.
+
+### Editorial & ghostwriting
+Long-form that earns links, citations and the respect of your buyers.
+
+### Digital PR
+Stories placed where your category reads, with a hook worth printing.
+
+### UGC & creator work
+Sourced, briefed and managed. The format that still outperforms polish.
+
+### Brand guardrails
+Prompts, tone rules and review gates so scale doesn't dilute the brand.
+
+## How it works
+
+### 1. Concept (Week 1–2)
+One idea sharp enough to survive being cut fifty ways.
+
+### 2. Produce (Monthly)
+Shoot, edit, generate. A monthly slate sized to your testing cadence.
+
+### 3. Distribute (Ongoing)
+Paid, organic and earned. The same story, told natively per channel.
+
+### 4. Learn (Monthly)
+Winners inform next month's slate. Losers get an honest post-mortem.
+
+## Who it's for
+
+### For brands
+Brands that need enough creative to test properly every month, without the output starting to look generic.
+
+### For agencies (white-label)
+Agencies that need production capacity for ads, video and editorial at a lower cost than hiring, delivered under their name.
+
+## How we use AI
+
+AI speeds up scripting, variations and resizing. Concepts, taste and the final cut stay with human creatives, and nothing ships without review.
+
+## Results
+
+- Unbroken Spirit (41M views): A film launch that hit 41 million organic views with zero paid budget.
+- Sacred Chants (40+ assets): A monthly creative slate sized to the testing cadence, not the mood.
+- The Motoring Club (Earned press): Category coverage placed with a hook worth printing.
+
+## Frequently asked questions
+
+### How much content can you produce each month?
+It depends on the mix, but a typical slate is 20 to 60 ad-ready assets a month, sized to how fast your accounts can test them.
+
+### Do you use AI-generated content?
+Where it helps: scripting, variations, resizing and some visuals. Every asset is reviewed by a human creative against your brand guardrails before it ships.
+
+### Do you handle PR placements?
+Yes. We write and pitch stories to the publications and podcasts your buyers follow. We don't promise specific placements; we promise a hook worth covering.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/content-pr
+
+---
+
+# UX & Website Design
+
+Websites designed around the decision a visitor is trying to make. Researched, prototyped, and built to convert without insulting anyone's intelligence.
+
+## The problem
+
+Your site is a brochure and your buyers are shopping. Beautiful sites lose to clear ones every time. The usual failures are structural: the offer isn't stated in the first screen, the proof is buried, and the primary action competes with six others. Redesigning the visuals without fixing that just makes the confusion look nicer.
+
+## What's included
+
+### Research & flows
+What visitors need to know, in what order, before they'll act.
+
+### Conversion-first design
+Layouts built around one primary action per screen.
+
+### Design systems
+Components your team can extend without calling us every fortnight.
+
+### Prototyping
+Clickable and testable before anybody writes production code.
+
+### Accessibility
+WCAG AA as standard. It's a bigger market and it's the right thing.
+
+### Handoff
+Documented, tokenised, and understood by whoever builds it.
+
+## How it works
+
+### 1. Discover (Week 1–2)
+Analytics, session recordings, sales calls. Where people hesitate and why.
+
+### 2. Structure (Week 3)
+Sitemap, flows and wireframes agreed before any visual design.
+
+### 3. Design (Month 2)
+High-fidelity screens and a system behind them.
+
+### 4. Test (Pre-launch)
+Prototype in front of real users, then iterate before build.
+
+## Who it's for
+
+### For brands
+Brands whose sites look good but don't convert, or who are about to redesign and want it built around buyer decisions.
+
+### For agencies (white-label)
+Agencies that need UX research, design systems or conversion-focused design delivered white-label for a client.
+
+## How we use AI
+
+AI helps us analyze session recordings and draft copy options at speed. Research, structure and design decisions are made by senior designers.
+
+## Results
+
+- Tarzanway (1 decision): Site rebuilt around one decision per screen, then tested on real users.
+- Unbroken Spirit (11 days): Campaign site designed, built and shipped in eleven days flat.
+- BullzEye (AA): Accessibility taken to WCAG AA without losing the brand.
+
+## Frequently asked questions
+
+### How long does a website redesign take?
+Most marketing sites take 6 to 10 weeks from discovery to launch-ready design. Campaign sites can ship in about two weeks.
+
+### Do you design for accessibility?
+Yes. WCAG 2.2 AA is our default standard, not an add-on.
+
+### Can you work with our developers?
+Yes. We hand over a documented design system and working prototypes, or our engineering team builds it.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/ux-web
+
+---
+
+# Engineering & DevOps
+
+The build and everything that keeps it standing. Next.js, Webflow, WordPress, headless commerce, integrations and the infrastructure underneath.
+
+## The problem
+
+Marketing shipped a site. Nobody agreed to maintain it. The launch is the easy part. Six months later the plugins are stale, the integration broke silently, page speed has drifted, and the only person who understood the setup has left. Good engineering is mostly about what happens after the confetti.
+
+## What's included
+
+### Web builds
+Next.js, Webflow or WordPress, chosen for who maintains it, not for what's fashionable.
+
+### Headless commerce
+Storefronts that stay fast as the catalogue grows.
+
+### Integrations
+CRM, ERP, payments, telephony. The connections that make the stack one system.
+
+### Infrastructure & CI/CD
+Deploy pipelines, staging, rollbacks. Shipping should be boring.
+
+### Performance budgets
+Speed treated as a requirement, enforced automatically, not a launch-week scramble.
+
+### Maintenance
+Monitoring, patching and an actual human on the other end.
+
+## How it works
+
+### 1. Assess (Week 1)
+Audit the stack, the risks and the maintenance burden you're carrying.
+
+### 2. Architect (Week 2–3)
+A build plan sized to your team's ability to run it afterwards.
+
+### 3. Build (Month 1–3)
+Sprints with a staging URL you can see from day one.
+
+### 4. Operate (Ongoing)
+Monitoring, patching and improvements, month to month.
+
+## Who it's for
+
+### For brands
+Brands with a site or stack that works today but that nobody fully owns, or that needs to grow without slowing down.
+
+### For agencies (white-label)
+Agencies that design great sites but need a dependable development partner to build and maintain them for clients.
+
+## How we use AI
+
+AI assists with code review, testing and documentation. Architecture, security and production releases are handled by our engineers.
+
+## Results
+
+- The Motoring Club (2.4x faster): Platform rebuilt headless and 2.4x faster on the same content.
+- BullzEye (CRM live): Telephony, CRM and payments joined into one working system.
+- Tarzanway (Zero drama): Deploys, monitoring and patching handed over as boring routine.
+
+## Frequently asked questions
+
+### Which platforms do you build on?
+Next.js, Webflow, WordPress and headless commerce platforms such as Shopify. We choose based on who will maintain it.
+
+### Do you offer ongoing maintenance?
+Yes, month to month: monitoring, patching, performance budgets and improvements, with no long-term contract.
+
+### Can you take over an existing codebase?
+Yes. We start with a one-week audit of the stack and its risks, then take ownership in stages.
+
+## Pricing model
+
+Performance-linked or fixed-scope. No retainer lock-in. White-label partner rates for agencies.
+
+## Contact
+
+Request a call at https://taghashmedia.com/contact or email business@taghashmedia.com.
+
+URL: https://taghashmedia.com/engineering
+
+---
+
+# Our approach: performance-first, human-led, AI-backed
+
+Budgets don't buy growth. Decisions do. Every channel we run, every page we ship and every automation we build exists to shorten the distance between someone noticing you and someone choosing you.
+
+## What we bring
+
+### Performance first
+Paid on results, not retainers. Most engagements are tied to an agreed outcome such as qualified pipeline, cost per acquisition (CAC) or return on ad spend (ROAS), with no annual lock-in.
+
+### Human first, AI-backed
+Senior people own strategy, creative judgment and every client conversation. AI handles research, first drafts, creative variations, monitoring and reporting.
+
+### Direct or behind the scenes
+Brands hire Taghash Media directly. Agencies bring us in white-label to add services they don't offer in-house or to take on overflow at a lower cost than hiring.
+
+## How we get paid
+
+### Performance (For brands)
+A base fee plus a component tied to an agreed outcome, like qualified pipeline, CAC or ROAS. We win when you do.
+
+### Project (Brands & agencies)
+A defined deliverable, a fixed price and a date. Audits, launches, site builds and automation rollouts usually run this way.
+
+### White-label (For agencies)
+We deliver under your name at partner rates, so you keep the client relationship and a healthy margin.
+
+### Month to month (Ongoing work)
+When work is ongoing, it runs monthly. No annual contracts, no minimum term, no penalty for leaving.
+
+## Who needs Taghash
+
+### The founder who just closed the round
+The wire cleared, the team is doubling, and the board wants a go-to-market plan by Friday. You need a brand and a media engine that look like the company you're becoming, built in weeks, not quarters, by people who are calm inside the chaos.
+
+### The marketing lead who inherited a mess
+Eight years of patchwork: a fine logo, a functional site, four analytics tools that disagree. There's no budget for a full rebrand, but you can't keep apologising for the numbers either. We give you the wins you can ship this quarter and the roadmap for the rest.
+
+### The operator losing ground to copycats
+Your product works. The competition just got louder and cheaper, and your cost per lead is quietly climbing. You don't need prettier ads. You need positioning, creative, and a funnel that are engineered together and tested every week.
+
+### The enterprise marketer done with decks
+You have budget, stakeholders, and a gut feeling none of it is working. The last agency handed over 200 slides and a positioning statement nobody quotes. You need a partner who makes decisions, ships work, and reports on what it earned.
+
+### The visionary who can't explain it yet
+You can feel what you're building, but it comes out differently every time you pitch it. Investors nod politely, new hires improvise. We pull the idea out of your head, give it language and form, and make it land the same way with everyone.
+
+### The agency that sold more than it can deliver
+The pitch went well. Now you have three new clients and a team that's already at capacity. We plug into your process under your name, deliver to your standard, and stay invisible to your client unless you want us on the call.
+
+### The agency whose clients started asking about AI
+Your clients want GEO, AI agents and automation, and you'd rather not say no or hire a new department to find out. We deliver those services white-label, at a margin that works for you, while your team keeps the relationship.
+
+URL: https://taghashmedia.com/approach
+
+---
+
+# About Taghash Media
+
+A small, senior team that does the work it sells. No account managers, no juniors hidden behind a pitch team, and AI wherever it saves time. Studio in Bengaluru, with people in Dubai and Toronto.
+
+## Why Taghash exists
+
+Most marketing doesn't fail for lack of effort. It fails because nobody owns the number. Nikhil started Taghash to build a studio the other way round: senior people on every account, AI doing the repetitive work, and fees tied to what the work earns.
+
+## Leadership
+
+- Nikhil, Founder & CEO: strategy, media and the P&L
+- Kartik, Co-founder & CMO: positioning, creative and content
+
+## Team
+
+- Bikram, Client success
+- Manjit, Design head
+- Ayushi, DevOps head
+- Sonali, People & HR
+
+## What we bring
+
+### Performance first
+Paid on results, not retainers. Most engagements are tied to an agreed outcome such as qualified pipeline, cost per acquisition (CAC) or return on ad spend (ROAS), with no annual lock-in.
+
+### Human first, AI-backed
+Senior people own strategy, creative judgment and every client conversation. AI handles research, first drafts, creative variations, monitoring and reporting.
+
+### Direct or behind the scenes
+Brands hire Taghash Media directly. Agencies bring us in white-label to add services they don't offer in-house or to take on overflow at a lower cost than hiring.
+
+## House rules
+
+- The number wins the argument, including when it is our idea losing.
+- If we cannot measure it, we say so out loud before you pay for it.
+- Fewer campaigns, more creative. Almost always the right trade.
+- No deck longer than the work inside it.
+- Bad news travels first. You hear it from us, early and plainly.
+- AI takes the repetitive work. People make the decisions.
+- We would rather lose the pitch than oversell the plan.
+- Every account has a human whose name is on it. Yours are above.
+
+URL: https://taghashmedia.com/about
+
+---
+
+# Work and results
+
+Selected client results from Taghash Media across performance marketing, content and PR, GEO and SEO, automation, UX and web, and engineering.
+
+- Tarzanway (Performance): 312% more booked trips across two seasons.
+- Unbroken Spirit (Content & PR): 41M organic views at launch. Paid budget: zero.
+- Sacred Chants (Performance): 5.8x ROAS across four markets and three languages.
+- The Motoring Club (Automation): 2.4k members onboarded without a single manual email.
+- BullzEye (Performance): Cost per acquisition down 38% in a quarter.
+- Tarzanway (UX & web): Booking flow rebuilt around one decision per screen.
+- Sacred Chants (GEO & SEO): Cited by AI assistants for its category within 90 days.
+- The Motoring Club (Engineering): Membership platform rebuilt headless, 2.4x faster.
+- BullzEye (Automation): An AI agent now answers every enquiry in under 15 seconds.
+- Unbroken Spirit (UX & web): Campaign site shipped in eleven days flat.
+
+URL: https://taghashmedia.com/work
+
+---
+
+# Contact Taghash Media
+
+Tell us what you're working on. A senior strategist replies within one business day with what we'd do first and whether we're the right fit. No retainer lock-in.
+
+- Email: business@taghashmedia.com
+- Studio: Indiranagar, Bengaluru, India
+- Team also in Dubai and Toronto
+
+URL: https://taghashmedia.com/contact
