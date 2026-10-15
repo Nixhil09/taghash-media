@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="./support.js"></script>
+<script src="/support.js"></script>
 </head>
 <body>
 <x-dc>
@@ -11,7 +11,7 @@
 
   <div ref="{{ glowRef }}" style="position:absolute; top:0; left:0; width:520px; height:520px; margin:-260px 0 0 -260px; border-radius:50%; pointer-events:none; background:radial-gradient(circle, rgba(124,43,245,.28), rgba(124,43,245,0) 68%); opacity:0; transition:opacity .4s ease; will-change:transform;"></div>
 
-  <a href="contact.html" style="position:relative; display:block; margin-bottom:clamp(34px,5vw,70px);" style-hover="color:#fff;">
+  <a href="/contact" style="position:relative; display:block; margin-bottom:clamp(34px,5vw,70px);" style-hover="color:#fff;">
     <div ref="{{ bigRef }}" style="display:flex; align-items:baseline; gap:clamp(10px,1.4vw,24px); flex-wrap:wrap; transition:transform .5s cubic-bezier(.22,1,.36,1); will-change:transform;">
       <span style="font-size:clamp(38px,9vw,150px); font-weight:900; letter-spacing:-0.06em; line-height:.86; text-transform:uppercase;">Let's talk</span>
       <span style="display:inline-flex; align-items:center; justify-content:center; width:clamp(40px,4.4vw,74px); height:clamp(40px,4.4vw,74px); border-radius:50%; background:#7C2BF5; font-size:clamp(18px,2vw,30px); box-shadow:0 0 50px -12px rgba(124,43,245,.9);">↗</span>
@@ -23,7 +23,7 @@
       <div style="display:flex; flex-direction:column; gap:12px;">
         <span style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:4px;">{{ c.title }}</span>
         <sc-for list="{{ c.links }}" as="l" hint-placeholder-count="4">
-          <a href="{{ l.href }}" style="position:relative; align-self:flex-start; font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.7); padding-left:0; transition:color .3s ease, padding-left .3s cubic-bezier(.22,1,.36,1);" style-hover="color:#fff; padding-left:16px;">{{ l.label }}</a>
+          <a href="{{ l.href }}" style="position:relative; align-self:flex-start; max-width:100%; overflow-wrap:anywhere; font-size:15px; font-weight:500; letter-spacing:-0.01em; color:rgba(255,255,255,.7); padding-left:0; transition:color .3s ease, padding-left .3s cubic-bezier(.22,1,.36,1);" style-hover="color:#fff; padding-left:16px;">{{ l.label }}</a>
         </sc-for>
       </div>
     </sc-for>
@@ -33,14 +33,15 @@
         <input type="email" placeholder="Email" style="flex:1 1 160px; min-width:0; padding:13px 18px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); color:#fff; font-family:Archivo, sans-serif; font-size:14px; outline:none;" />
         <button style="padding:13px 24px; border-radius:999px; cursor:pointer; background:rgba(255,255,255,.05); backdrop-filter:blur(20px) saturate(160%); -webkit-backdrop-filter:blur(20px) saturate(160%); border:1px solid rgba(255,255,255,.14); box-shadow:0 0 34px -12px rgba(124,43,245,.8); color:#fff; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; transition:background .3s ease, border-color .3s ease;" style-hover="background:rgba(124,43,245,.32); border-color:rgba(168,85,247,.55);">Send</button>
       </div>
-      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); line-height:1.9;">{{ clock }} · Bengaluru</div>
+      <div style="font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.12em; text-transform:uppercase; color:rgba(255,255,255,.3); line-height:1.9;">{{ clock }}</div>
     </div>
   </div>
 
   <div style="position:relative; margin-top:clamp(28px,3.5vw,50px); padding-top:18px; border-top:1px solid rgba(255,255,255,.1); display:flex; flex-wrap:wrap; gap:14px; justify-content:space-between; font-family:'JetBrains Mono', monospace; font-size:10px; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.35);">
-    <span>© 2026 Taghash Media</span>
+    <span>© 2026 Taghash Media · Performance-first growth studio</span>
     <span>Privacy · Terms</span>
   </div>
+  <dc-import name="Taghash Survey" hint-size="0px,0px"></dc-import>
 </footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:460}}">
@@ -55,8 +56,8 @@ class Component extends DCLogic {
   componentDidMount() {
     const tick = () => {
       const d = new Date();
-      const t = new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", second: "2-digit", timeZone: "Asia/Kolkata" }).format(d);
-      this.setState({ clock: t + " IST" });
+      const f = (tz) => new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", timeZone: tz }).format(d);
+      this.setState({ clock: "New York " + f("America/New_York") + " ET · Chandigarh " + f("Asia/Kolkata") + " IST" });
     };
     tick();
     this._t = setInterval(tick, 1000);
@@ -86,29 +87,29 @@ class Component extends DCLogic {
       },
       columns: [
         { title: "Studio", links: [
-          { label: "Work", href: "work.html" },
-          { label: "Services", href: "services.html" },
-          { label: "Approach", href: "approach.html" },
-          { label: "About", href: "about.html" }
+          { label: "Work", href: "/work" },
+          { label: "Services", href: "/services" },
+          { label: "Approach", href: "/approach" },
+          { label: "About", href: "/about" }
         ]},
         { title: "Services", links: [
-          { label: "Performance Marketing", href: "performance-marketing.html" },
-          { label: "Automations & workflows", href: "automation.html" },
-          { label: "GEO / AEO / SEO", href: "geo-seo.html" },
-          { label: "Content & PR", href: "content-pr.html" },
-          { label: "UX & website design", href: "ux-web.html" },
-          { label: "Engineering & DevOps", href: "engineering.html" }
+          { label: "Performance Marketing", href: "/performance-marketing" },
+          { label: "Automations & workflows", href: "/automation" },
+          { label: "GEO / AEO / SEO", href: "/geo-seo" },
+          { label: "Content & PR", href: "/content-pr" },
+          { label: "UX & website design", href: "/ux-web" },
+          { label: "Engineering & DevOps", href: "/engineering" }
         ]},
         { title: "Social", links: [
-          { label: "Instagram", href: "contact.html" },
-          { label: "LinkedIn", href: "contact.html" },
-          { label: "YouTube", href: "contact.html" },
-          { label: "Behance", href: "contact.html" }
+          { label: "Instagram", href: "/contact" },
+          { label: "LinkedIn", href: "/contact" },
+          { label: "YouTube", href: "/contact" },
+          { label: "Behance", href: "/contact" }
         ]},
         { title: "Say hello", links: [
           { label: "business@taghashmedia.com", href: "mailto:business@taghashmedia.com" },
           { label: "+91 90000 00000", href: "tel:+919000000000" },
-          { label: "Bengaluru · Dubai · Toronto", href: "contact.html" }
+          { label: "Chandigarh · Philippines · Australia · U.S./Canada", href: "/contact" }
         ]}
       ]
     };
