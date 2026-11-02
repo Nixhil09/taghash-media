@@ -689,6 +689,7 @@ class Component extends DCLogic {
       card.style.margin = "0 " + inset + "vw";
       card.style.borderRadius = 28 * p + "px";
       card.style.height = (100 - 14 * p) + "vh";
+      this._reelPlay();
 
       const y = window.scrollY || 0;
       const glass = Math.max(0, Math.min(1, y / 220));
@@ -723,6 +724,21 @@ class Component extends DCLogic {
       }
     };
 
+    // Showreel: always start muted (browsers block unmuted autoplay) and play once scrolling begins or it's on screen
+    this._reelPlay = () => {
+      const v = this.videoRef.current;
+      if (!v || this._userPaused || !v.paused) return;
+      const r = v.getBoundingClientRect();
+      if (!(window.scrollY > 0 || (r.top < window.innerHeight && r.bottom > 0))) return;
+      if (!(this.state && this.state.sound)) { v.muted = true; v.defaultMuted = true; }
+      const pr = v.play();
+      if (pr && pr.then) pr.then(() => { if (this.state && this.state.paused) this.setState({ paused: false }); }).catch(() => {});
+    };
+    const v0 = this.videoRef.current;
+    if (v0) { v0.muted = true; v0.defaultMuted = true; v0.setAttribute("muted", ""); }
+    this._reelKick = () => this._reelPlay();
+    ["touchstart", "pointerdown", "keydown"].forEach(ev => window.addEventListener(ev, this._reelKick, { passive: true }));
+
     this.xTarget = 0; this.xCur = 0;
     const tick = () => {
       this.xCur += (this.xTarget - this.xCur) * 0.11;
@@ -754,7 +770,7 @@ class Component extends DCLogic {
     }
     if (this._onScroll) this._onScroll();
   }
-  componentWillUnmount() { clearInterval(this._t); clearInterval(this._svcT); window.removeEventListener("scroll", this._onScroll); if (this._raf) cancelAnimationFrame(this._raf);  }
+  componentWillUnmount() { clearInterval(this._t); clearInterval(this._svcT); window.removeEventListener("scroll", this._onScroll); ["touchstart", "pointerdown", "keydown"].forEach(ev => window.removeEventListener(ev, this._reelKick)); if (this._raf) cancelAnimationFrame(this._raf);  }
   renderVals() {
     const BOTS = [
       { name: "Ava", role: "Chat & voice agent", stat: "11s avg reply", line: "Answers your leads on the phone and in the chat window, qualifies them, books them in. At 3am, in a good mood, every time.",
@@ -870,12 +886,12 @@ class Component extends DCLogic {
       playLabel: this.state && this.state.paused ? "Play showreel" : "Pause showreel",
       togglePlay: () => {
         const v = this.videoRef.current; if (!v) return;
-        if (v.paused) { v.play(); this.setState({ paused: false }); } else { v.pause(); this.setState({ paused: true }); }
+        if (v.paused) { this._userPaused = false; v.play(); this.setState({ paused: false }); } else { this._userPaused = true; v.pause(); this.setState({ paused: true }); }
       },
       toggleSound: () => {
         const v = this.videoRef.current; if (!v) return;
         const on = !(this.state && this.state.sound);
-        v.muted = !on; if (on) v.play();
+        v.muted = !on; if (on) { this._userPaused = false; v.play(); }
         this.setState({ sound: on });
       },
       cursorRef: this.cursorRef,
